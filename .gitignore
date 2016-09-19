@@ -1,0 +1,21 @@
+# archives
+ *.zip
+ *.tar.gz
+
+# executables  
+ *.exe
+ *.obj
+
+# OS genrated files
+ ._*
+ .cache
+ .DS_Store
+ *[Tt]humbs.db
+ *.Trashes
+ *~
+ *.log 
+
+# ignore folders/files
+
+/c_app/views/courseware/**/*
+/c_app/Api/**/*
