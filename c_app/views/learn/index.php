@@ -543,6 +543,30 @@
                             </div>
 
 
+    <!----- Modal Delete Window --->    
+    <div class="modal inmodal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content" style="text-align:center">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                            <h5 class="modal-title">Hey <br/><?php echo $_SESSION['accessLogin']['full_name'];?></h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>
+                                                Do you want to delete this classroom <strong id="deletename"></strong>?</p>
+                                        </div>
+                                        <img src="<?php echo $dirlocation;?>c_app/views/images/default.gif" width="30px" class="loader" style="display:none">
+                                        <div class="alert alert-success" id="message" style="text-align:center;font-weight:bold;display:none">
+                                        
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                            <a href="" class="btn btn-white" ng-click="confirmdelete()">Delete class</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
 
 
                             

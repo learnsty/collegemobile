@@ -122,7 +122,7 @@ figure {margin-bottom: 0; position: relative;}
 blockquote, q {quotes: none;}
 blockquote:before, :after, q:before, q:after {content: ''; content: none;}
 table {border-collapse: collapse; border-spacing: 0;}
-select, textarea,  [type=date],  [type=datetime],  [type=datetime-local],  [type=email],  [type=month],  [type=number],  [type=password],  [type=range],  [type=search],  [type=tel],  [type=text],  [type=time],  [type=url],  [type=week] {box-shadow: none; box-sizing: border-box; color: #aaaaaa; font-size: 11px; height: 43px; line-height: 16px; padding: 10px 12px; width: 100%; border: 1px solid #f6f6f6; border-radius:0px; background:#fcfcfc;}
+select, textarea,  [type=date],  [type=datetime],  [type=datetime-local],  [type=email],  [type=month],  [type=number],  [type=range],  [type=search],  [type=tel],  [type=text],  [type=time],  [type=url],  [type=week] {box-shadow: none; box-sizing: border-box; color: #aaaaaa; font-size: 11px; height: 43px; line-height: 16px; padding: 10px 12px; width: 100%; border: 1px solid #f6f6f6; border-radius:0px; background:#fcfcfc;}
 [class*="  "], [class*="  "], [class*="  "] {display:inline-block;float:none;margin:0 -4px 0 0;vertical-align:top}
 textarea { height: 123px; }
 /* RichEditor Style's */

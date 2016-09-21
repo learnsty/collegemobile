@@ -58,10 +58,11 @@ $checkclassroom=$crud->dbselect('classroom_users','*',"student_id='".$_SESSION['
                                         <li class="list-group-item">
                                             <p><?php echo substr($grab['classroom_description'],0,300).'...';?></p>
                                             
-                                            <a href="<?php echo $dirlocation;?>learn/classroom/view?view=<?php echo $grab['classroom_id'];?>&&lead=<?php echo  $_SESSION['accessLogin']['user_id'];?>" class="btn btn-xs btn-white">View</a>
+                                            <a href="<?php echo $dirlocation;?>learn/classroom/view?view=<?php echo $grab['classroom_id'];?>" class="btn btn-xs btn-white">View</a>
                                 
-                                <a href="<?php echo $dirlocation;?>learn/classroom?edit=<?php echo $grab['classroom_id'];?>" class="btn btn-xs btn-white">Edit</a>
-                                <a href="<?php echo $dirlocation;?>learn/classroom?edit=<?php echo $grab['classroom_id'];?>" class="btn btn-xs btn-white">Delete</a>
+                                <a href="<?php echo $dirlocation;?>learn/classroom/newclassroom?edit=<?php echo $grab['classroom_id'];?>" class="btn btn-xs btn-white">Edit</a>
+                                <!-- &#39 means single quote-->           
+                                <a href="#" data-toggle="modal" data-target="#deleteModal" ng-click="delete(&#39;<?php echo $grab['classroom_id'];?>&#39;, &#39;<?php echo $grab['classroom_title'];?>&#39;);" class="btn btn-xs btn-white">Delete</a>
                                         </li>
                                         
                                         

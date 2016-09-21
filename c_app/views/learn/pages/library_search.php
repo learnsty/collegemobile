@@ -24,13 +24,13 @@
                             <?php while ($grab=mysql_fetch_array($data['search'][0])){?>
                             <div class="hr-line-dashed"></div>
                             <div class="search-result" style="padding-top:0;">
-                             <img src="<?php echo $dirlocation;?>c_app/views/<?php echo $grab['banner'];?>" class="img-responsive" width="60px" style="float:left;margin-right:10px" />
-                                <h3><a href="#"><?php echo $grab['course_title'];?></a></h3>
-                                <a href="#" class="search-link">www.collegemobile.net/learn/courseware/<?php echo $grab['course_title'].'_'.$grab['courseware_id'];?></a>
+                             <img src="<?php if($grab['banner']==''){echo $dirlocation.'c_app/views/images/noimage.jpg';}else{echo $dirlocation.'c_app/views/'.$grab['banner'];}?>" class="img-responsive" width="60px" style="float:left;margin-right:10px" />
+                                <a href="<?php echo $dirlocation;?>learn/courseware/view?view=<?php echo $grab['courseware_id'];?>" style="color:inherit"><h3><?php echo $grab['course_title'];?></h3>
                                 
                                 <p>
                                     <?php echo $grab['course_description'];?>
                                 </p>
+                                    </a>
                             </div>
                             <?php }?>
                             <div class="hr-line-dashed"></div>

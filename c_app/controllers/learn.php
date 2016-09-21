@@ -54,6 +54,8 @@ class learn extends Controller{
 	$allcourseware=$dashboard->library();
 	$allcatalogue=$model->allcatalogue();
 	$allskillset=$model->skillset();
+	$like=$dashboard->like();
+	$pin=$dashboard->pin();
 	//////IF THE SEARCH IS TRIGGERED///
 	if(isset($_GET['SearchKeyword'])){
 	$search=$dashboard->search();	
@@ -75,6 +77,7 @@ class learn extends Controller{
 	$pin=$dashboard->pin();
 	$allcatalogue=$model->allcatalogue();
 	$allskillset=$model->skillset();
+	$like=$dashboard->like();
 	if(isset($_GET['SearchKeyword'])){
 	$search=$dashboard->search();	
 	}
@@ -95,7 +98,7 @@ class learn extends Controller{
     $classroom=$dashboardModel->classroom(); 
 	$skillset=$mobilemodel->skillset();
 	$allcatalogue=$mobilemodel->allcatalogue();
-	
+	$pin=$dashboardModel->pin();
 	//////IF THE SEARCH IS TRIGGERED///
 	if(isset($_GET['SearchKeyword'])){
 	$search=$dashboardModel->search();	

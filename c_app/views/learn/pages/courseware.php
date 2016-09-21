@@ -46,6 +46,7 @@
 	?>
     <option value="<?php echo $grab['catalogue_id'];?>" <?php if($data['library']['library'][0]['catalogue_id']==$grab['catalogue_id']){echo "selected='selected'";}?>><?php echo $grab['catalogue_title'];?></option>
     <?php }?>
+    
     </select>              
 
            </div>
@@ -56,7 +57,7 @@
           <div class="input-group-addon">
           <span class="">Skillset</span>
           </div>
-    <select name="searchCategory" class="form-control">
+    <select name="searchSkillset" class="form-control">
     <option value="0">--Select Skillset--</option>     
     <?php while ($grab=mysql_fetch_array($data['skillset'][1])){
 	$skillset[]=$grab;	

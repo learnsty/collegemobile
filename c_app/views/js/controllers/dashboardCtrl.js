@@ -1,6 +1,40 @@
 mainApp.controller('DashboardCtrl', ['$scope', '$http','$location', 'UserService','$localStorage', function($scope, $http, $location, User, $localStorage){
 	
-	
+    
+
+    $scope.delete = function (id, name) {
+
+    $('#deletename').text(name);
+
+        
+    $scope.confirmdelete = function(){
+    $('.loader').show();    
+    $http.get(User.dirlocation+"/c_app/Api/ConnectApi.php?confirmclassdelete="+id)
+              .then(function(response) {
+				
+        if(response.data=='1'){
+        $('#message').text("Class have been deleted").show();
+        }
+        else{
+          $('#message').text(response.data).show();   
+        }
+        
+        $('.loader').hide(); 
+        setTimeout(function(){
+        location.reload();    
+          
+        }, 2000);
+        
+				
+				
+              })    
+    
+    }
+    
+    
+    
+  }
+    
     $scope.uploadpass = function(){
     $('.loader2').show();   
    // $('.result2').hide();

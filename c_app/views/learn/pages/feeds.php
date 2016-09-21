@@ -80,7 +80,7 @@
                                                             <?php if($checklike[2]==0){?>                                                            
 <a href="<?php echo $dirlocation;?>learn/feeds?like=<?php echo $getsection[0]['courseware_id'];?>&&table=courseware" class="btn btn-xs btn-white"><i class="fa fa-heart"></i> Like </a>
 <?php }elseif($checklike[2]>0){?>
-<a href="<?php echo $dirlocation;?>learn/feeds?dislike=<?php echo $checklike[0]['like_id'];?>&&table=courseware" class="btn btn-xs btn-danger"><i class="fa fa-tag"></i> dislike </a>
+<a href="<?php echo $dirlocation;?>learn/feeds?dislike=<?php echo $checklike[0]['like_id'];?>&&table=courseware" class="btn btn-xs btn-danger"><i class="fa fa-tag"></i> Unlike </a>
 <?php }?>
 
    <a href="<?php echo $dirlocation;?>learn/courseware/view?view=<?php echo $getsection[0]['courseware_id'];?>" class="btn btn-xs btn-white"><i class="fa fa-folder-open"></i> View </a>
@@ -371,3 +371,4 @@ If the owner is not the creator of this classroom. That is the only condition in
             </div>
  
 
+>>

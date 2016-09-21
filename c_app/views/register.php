@@ -120,11 +120,19 @@ name="myForm" method="post" novalidate id="register" class="login" style="float:
                               </div>
                               <input type="number" class="form-control" id="exampleInputAmount" placeholder="Phone number" name="phone" ng-model="phone" required>
                             </div>
-  
+        <div style="color:red" ng-show="myForm.confirm_email.$error.passwordVerify">
+        Email fields do no match!</div>
+
                             <div class="input-group">
                               <div class="input-group-addon">@</div>
-                              <input type="text" class="form-control" id="exampleInputAmount" placeholder="Email" name="email" ng-model="email" required>
+                              <input type="email" class="form-control" id="exampleInputAmount" placeholder="Email" name="email" ng-model="email" required>
                             </div>
+                            
+                            <div class="input-group">
+                              <div class="input-group-addon">@</div>
+                             <input type="email" class="form-control" id="exampleInputAmount" placeholder="Confirm Password" name="confirm_email" ng-model="email_verify" required data-password-verify="email">
+                            </div>
+                            
                             
      <span style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid">
    <span ng-show="myForm.password.$error.required">Password is required.</span>

@@ -25,8 +25,7 @@
                             <div class="hr-line-dashed"></div>
                             <div class="search-result" style="padding-top:0;">
                              <img src="<?php echo $dirlocation;?>c_app/views/<?php echo $grab['banner'];?>" class="img-responsive" width="60px" style="float:left;margin-right:10px" />
-                                <h3><a href="#"><?php echo $grab['course_title'];?></a></h3>
-                                <a href="#" class="search-link">www.collegemobile.net/learn/courseware/<?php echo $grab['course_title'].'_'.$grab['courseware_id'];?></a>
+                                <h3><a href="<?php echo $dirlocation;?>learn/courseware/view?view=<?php echo $grab['courseware_id'];?>" style="color:!important"><?php echo $grab['course_title'];?></a></h3>
                                 
                                 <p>
                                     <?php echo $grab['course_description'];?>

@@ -65,14 +65,12 @@ $split=end(explode('.',strtolower($grabook['path'])));
                         <i class="fa fa-folder-open"></i>
                         View</a>
                         
-                        <a href="<?php echo $dirlocation;?>c_app/views/<?php echo $grabook['path'];?>" class="btn btn-white btn-xs">
-                        <i class="fa fa-share"></i>
-                        Share</a>
+                        <a class="btn btn-xs btn-white a2a_dd" data-toggle="modal" data-target="#myModalshare" data-a2a-url="<?php echo $dirlocation;?>learn/courseware/view?view=<?php echo $grabook['courseware_id'];?>"><i class="fa fa-share"></i> Share </a>
                         
 						<?php if($checkpin[2]==0){?>                                                            
-<a href="<?php echo $dirlocation;?>learn/courseware?pin=<?php echo $grabook['courseware_id'];?>&&table=courseware" class="btn btn-xs btn-white"><i class="fa fa-tag"></i> Clip </a>
+<a href="<?php echo $dirlocation;?>learn/library?pin=<?php echo $grabook['courseware_id'];?>&&table=courseware" class="btn btn-xs btn-white"><i class="fa fa-tag"></i> Clip </a>
 <?php }elseif($checkpin[2]>0){?>
-<a href="<?php echo $dirlocation;?>learn/courseware?unpin=<?php echo $checkpin[0]['pin_id'];?>&&table=courseware" class="btn btn-xs btn-danger"><i class="fa fa-tag"></i> Unclip </a>
+<a href="<?php echo $dirlocation;?>learn/library?unpin=<?php echo $checkpin[0]['pin_id'];?>&&table=courseware" class="btn btn-xs btn-danger"><i class="fa fa-tag"></i> Unclip </a>
 <?php }?>
 
  

@@ -39,7 +39,7 @@
                                 <h3><?php echo $data['dashboard']['todayvisitors'][2];?></h3>
                             </div>
                             <div class="panel-footer back-footer-green">
-                                Coureware
+                                Courseware
 
                             </div>
                         </div>
@@ -80,12 +80,13 @@
                                 <h3><?php echo $data['dashboard']['todayNews'][2];?></h3>
                             </div>
                             <div class="panel-footer back-footer-red">
-                               Post Feeds
+                               Feeds
 
                             </div>
                         </div>
                     </div>
                  </a>
+                  <a href="<?php echo $dirlocation;?>learn/profile" style="color:inherit">
                  <div class="col-md-3 col-sm-12 col-xs-12" style="padding:0 5px">
                         <div class="panel panel-primary text-center no-boder bg-color-default">
                             <div class="panel-body">
@@ -98,6 +99,8 @@
                             </div>
                         </div>
                     </div>
+                    
+                    </a>
                       </div> 
                       
                       

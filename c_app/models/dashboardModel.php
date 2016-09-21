@@ -329,7 +329,7 @@ $forminsertarray=array('classroom_title'=>$classroom_title,'classroom_descriptio
 		
 	$return['msg']=$this->crud->dbinsert('liked',$insert_array);	
 	
-	header("location:".$dirlocation. parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+	//header("location:".$dirlocation. parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 	//return $return;
 	}
 	
@@ -339,7 +339,7 @@ $forminsertarray=array('classroom_title'=>$classroom_title,'classroom_descriptio
 		
 	$return['msg']=$this->crud->dbdelete('liked',$where);	
 	
-	header("location:".$dirlocation. parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+	//header("location:".$dirlocation. parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 	//return $return;
 	}
 	
@@ -479,101 +479,47 @@ $forminsertarray=array('classroom_title'=>$classroom_title,'classroom_descriptio
 
 
 	public function search(){
+	$this->crud=new Crud; 	
 	if(isset($_GET['SearchKeyword'])){
-	$SearchKeyword=filter_var($_GET['SearchKeyword'], FILTER_SANITIZE_STRING);
-	
-	if($_GET['table']=='courseware'){
-	$column='course';	
-	}
-	else{
-	$column='classroom';	
-	}
-	
-	$run=$this->crud->paginate($_GET['table'],$query,'10',$column."_title LIKE '%".$SearchKeyword."%' AND status='1'".$searchqueryadd,'ORDER by '.$_GET['table'].'_id DESC');
-	//////IF THE NEWS HEADLINE IS NOT FOUND
-	if($run[2]!=0){
-	return $run;
-	}	
-	$search_exploded = explode ( " ", $SearchKeyword );
-	$x = 0; 
-	foreach($search_exploded as $search_each) 
-	{ 
-	$x++;
-	$construct = " "; 
-	if( $x == 1 ) $construct .= $column."_title LIKE '%$search_each%' ";
-	else $construct .= "AND ".$column."_title LIKE '%$search_each%' "; 
-	}
-	//echo $construct;exit;
-	$run = $this->crud->paginate($_GET['table'],$query,'10', $construct." AND status='1'".$searchqueryadd,'ORDER by '.$_GET['table'].'_id DESC');
-
-	  //print_r($run);exit;
-	return ($run);
-	}
-	
-	/*	
-	if(isset($_GET['SearchKeyword'])){
-		
-	if($_GET['table']=='courseware'){
-	$column='course';	
-	}
-	else{
-	$column='classroom';	
-	}
-	
-	require_once('c_app/models/FilterModel.php');
-	$this->crud=new Crud;
-	$filter=new filterModel;
-	
-	if(($_GET['searchCategory']!='')||($_GET['searchCategory']!='0')){
-	$category = $_GET['searchCategory'];
-	$searchqueryadd=" AND catalogue_id='".$category."'";
-	}
-
-	$SearchKeyword=filter_var($_GET['SearchKeyword'], FILTER_SANITIZE_STRING);
+	$SearchKeyword=filter_var($_GET['SearchKeyword'], FILTER_SANITIZE_STRING);	
+	$search = explode(' ', $SearchKeyword);
+    $searchResults = 'LIKE ';
 	$query="?SearchKeyword=".$SearchKeyword.'&table='.$_GET['table'];
-
-	if (strpos($SearchKeyword,' ') !== false) {
-	$splitWord=explode(' ',$SearchKeyword);
+	
+	if($_GET['table']=='courseware'){
+	$column='course';	
 	}
 	else{
-	$splitWord[0]=$_GET['SearchKeyword'];
-	$splitWord[1]='';
-	$splitWord[2]='';
+	$column='classroom';	
 	}
 	
-	$Searchresult=$this->crud->paginate($_GET['table'],$query,'10',$column."_title LIKE '%".$SearchKeyword."%' AND status='1'".$searchqueryadd,'ORDER by '.$_GET['table'].'_id DESC');
-	//////IF THE NEWS HEADLINE IS NOT FOUND
-	if($Searchresult[2]!=0){
-	return $Searchresult;
+	///// IF THE USER SET A CATEGORY CRITERAIA////
+	if(($_GET['searchCategory']!='')&&($_GET['searchCategory']!='0')){
+	$category_id=$_GET['searchCategory'];	
+	$searchcategoryquery="AND catalogue_id=".$category_id;
 	}
-	//////ELSE, SPLIT AND SEARCH
-	else{
-	$Searchresult=$this->crud->paginate($_GET['table'],$query,'10',$column."_title LIKE '%".$splitWord[0]."%' AND status='1'".$searchqueryadd,'ORDER by '.$_GET['table'].'_id DESC');
-
-	if($Searchresult[2]!=0){
-	return $Searchresult;
+	
+	//////IF THE USER SETA SKILLSET CRITERIA////
+	if(($_GET['searchSkillset']!='')&&($_GET['searchSkillset']!='0')){
+	$skillset_id=$_GET['searchSkillset'];
+	$searchskillsetquery="AND skillset_id=".$skillset_id;	
 	}
-	else{
-	$Searchresult=$this->crud->paginate($_GET['table'],$query,'10',$column."_title LIKE '%".$splitWord[1]."%' AND status='1'".$searchqueryadd,'ORDER by '.$_GET['table'].'_id DESC');
+	
 
-	if($Searchresult[2]!=0){
-	return $Searchresult;
+    foreach ($search as $id => $word) {
+        $searchResults .= "'%" . $word . "%'";
+        $searchResults .= " OR ".$column."_title LIKE ";
+    }
+    $searchResults = rtrim($searchResults,"OR ".$column."_title LIKE ");
+	
+	return $this->crud->paginate($_GET['table'],$query,'10',$column."_title"." {$searchResults}".$searchcategoryquery.$searchskillsetquery,'ORDER by '.$_GET['table'].'_id DESC');
+	
 	}
-	else{
-	$Searchresult=$this->crud->paginate($_GET['table'],$query,'10',$column."_title LIKE '%".$splitWord[2]."%' AND status='1'".$searchqueryadd,'ORDER by '.$_GET['table'].'_id DESC');
-
-	return $Searchresult;
-
+	
+	
 	}
-
-	}
-
-	}
-
-	}
-	*/
-	}
-
+	
+	
 	public function searchglobal(){
 	echo $_GET['SearchKeyword'];
 	exit;	

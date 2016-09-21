@@ -106,11 +106,21 @@ if(in_array($split,$video_array)){?>
 $crud=new Crud;
 	/////// CHECK IF USER HAS PINED THE COURSEWARE
 	$checkpin=$crud->dbselect('pin','*',"user_id='".$_SESSION['accessLogin']['user_id']."' AND table_id='".$data['library']['library'][0]['courseware_id']."'AND table_name='courseware'",'');
-	?>
+	
+	/////// CHECK IF USER HAS LIKED THE COURSEWARE
+	$checklike=$crud->dbselect('liked','*',"user_id='".$_SESSION['accessLogin']['user_id']."' AND table_id='".$data['library']['library'][0]['courseware_id']."'AND table_name='courseware'",'');
+	
+		?>
 <?php if($checkpin[2]==0){?>                                                            
-<a href="<?php echo $dirlocation;?>learn/courseware/view?view=<?php echo $data['library']['library'][0]['courseware_id'];?>&&pin=<?php echo $data['library']['library'][0]['courseware_id'];?>&&table=courseware" class="btn btn-white"><i class="fa fa-tag"></i> Clip </a>
+<a href="<?php echo $dirlocation;?>learn/courseware/view?view=<?php echo $data['library']['library'][0]['courseware_id'];?>&&pin=<?php echo $data['library']['library'][0]['courseware_id'];?>&&table=courseware" class="btn btn-white btn-xs"><i class="fa fa-tag"></i> Clip </a>
 <?php }elseif($checkpin[2]>0){?>
-<a href="<?php echo $dirlocation;?>learn/courseware/view?view=<?php echo $data['library']['library'][0]['courseware_id'];?>&&unpin=<?php echo $checkpin[0]['pin_id'];?>&&table=courseware" class="btn btn-danger"><i class="fa fa-tag"></i> Unclip </a>
+<a href="<?php echo $dirlocation;?>learn/courseware/view?view=<?php echo $data['library']['library'][0]['courseware_id'];?>&&unpin=<?php echo $checkpin[0]['pin_id'];?>&&table=courseware" class="btn btn-danger btn-xs"><i class="fa fa-tag"></i> Unclip </a>
+<?php }?>
+
+<?php if($checklike[2]==0){?>                                                            
+<a href="<?php echo $dirlocation;?>learn/courseware/view?view=<?php echo $data['library']['library'][0]['courseware_id'];?>&&like=<?php echo $data['library']['library'][0]['courseware_id'];?>&&table=courseware" class="btn btn-xs btn-white"><i class="fa fa-heart"></i> Like </a>
+<?php }elseif($checklike[2]>0){?>
+<a href="<?php echo $dirlocation;?>learn/courseware/view?view=<?php echo $data['library']['library'][0]['courseware_id'];?>&&dislike=<?php echo $checklike[0]['like_id'];?>&&table=courseware" class="btn btn-xs btn-danger"><i class="fa fa-tag"></i> Unlike </a>
 <?php }?>
 
 <hr />

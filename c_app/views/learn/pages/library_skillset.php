@@ -18,9 +18,17 @@ $getbooksunderskillset=$crud->dbselect('courseware','*',"skillset_id='".$grab['s
 while($grabook=mysql_fetch_array($getbooksunderskillset[1])){
 $getownerdetails=$crud->dbselect('lecturer','*',"rand='".$grabook['staff_id']."'","");
 if($getownerdetails[2]==0){
-$getownerdetails=$crud->dbselect('student','*',"rand='".$grabook['staff_id']."'","");	
+$getownerdetails=$crud->dbselect('student','*',"rand='".$grabook['staff_id']."'","");
+if($getownerdetails[2]==0){
+	$getownerdetails=$crud->dbselect('contentprovider','*',"rand='".$grabook['staff_id']."'",""	);
+	}	
 }
 $split=end(explode('.',strtolower($grabook['path'])));
+
+
+	/////// CHECK IF USER HAS PINED THE COURSEWARE
+	$checkpin=$crud->dbselect('pin','*',"user_id='".$_SESSION['accessLogin']['user_id']."' AND table_id='".$grabook['courseware_id']."'AND table_name='courseware'",'');
+
 
 ?>
 <div class="col-lg-3" style="margin:0;padding:4px;overflow:hidden;">
@@ -52,17 +60,19 @@ $split=end(explode('.',strtolower($grabook['path'])));
                           </div>
                           
                         
-                        <a href="<?php echo $dirlocation;?>c_app/views/<?php echo $grabook['path'];?>" class="btn btn-white btn-xs">
+                        <a href="<?php echo $dirlocation;?>learn/courseware/view?view=<?php echo $grabook['courseware_id'];?>" class="btn btn-white btn-xs">
                         <i class="fa fa-folder-open"></i>
                         View</a>
                         
-                        <a href="<?php echo $dirlocation;?>c_app/views/<?php echo $grabook['path'];?>" class="btn btn-white btn-xs">
-                        <i class="fa fa-share"></i>
-                        Share</a>
+                        <a class="btn btn-xs btn-white a2a_dd" data-toggle="modal" data-target="#myModalshare" data-a2a-url="<?php echo $dirlocation;?>learn/courseware/view?view=<?php echo $grabook['courseware_id'];?>"><i class="fa fa-share"></i> Share </a>
                         
-                        <a href="<?php echo $dirlocation;?>c_app/views/<?php echo $grabook['path'];?>" class="btn btn-white btn-xs">
-                        <i class="fa fa-paperclip"></i>
-                        Clip</a>  
+                        <?php if($checkpin[2]==0){?>                                                            
+<a href="<?php echo $dirlocation;?>learn/library?pin=<?php echo $grabook['courseware_id'];?>&&table=courseware" class="btn btn-xs btn-white"><i class="fa fa-tag"></i> Clip </a>
+<?php }elseif($checkpin[2]>0){?>
+<a href="<?php echo $dirlocation;?>learn/library?unpin=<?php echo $checkpin[0]['pin_id'];?>&&table=courseware" class="btn btn-xs btn-danger"><i class="fa fa-tag"></i> Unclip </a>
+<?php }?>
+
+ 
                       </div>
                         <!-- /.panel-body -->
                     </div>

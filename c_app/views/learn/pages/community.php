@@ -1,6 +1,6 @@
 
 
-            <div class="wrapper wrapper-content" ng-controller="DashboardCtrl">
+            <div class="wrapper wrapper-content">
             <div class="content animated fadeInRight" style="padding:0;">
 <div class="col-lg-12 wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
