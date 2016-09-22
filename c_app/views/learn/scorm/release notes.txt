@@ -1,0 +1,50 @@
+################# SAAVY SCORM RUNTIME (SSR)  ###################
+
+
+
+Codename : SSR-E
+Version : 1.0.0-beta
+BuildID : SSR-34eb1r415eQ93jfb7c93m
+GUID : 1345-9828-3184-99283841-0373
+Author: Ifeora Okechukwu
+Copyright (c) 2016
+
+
+
+
+CHANGE LOG (0)
+ - No details for now
+
+
+
+
+KNOWN BUGS (0)
+ - No details for now
+
+
+
+CAVEATS (2)
+ - Some browsers don't call LMSFinish(""); method whenever an abrupt shutdown is encountered by SSR. Hence, users may lose learner tracking data not persisted to the database if config is tampered with;
+ - The following ASCII characters placed inside an ADL prerequisite tag in a SCORM manifest XML file must be escaped [&, ~]
+
+
+
+
+FINAL UPDATES FOR THIS VERSION (v1.0.0-beta) - timeline late 2016
+ - Finalize footer UI
+ - Setup basic shortcut keys for UI actions
+ - Setup Mobile Context Requirments (Majorly CSS - Media Queries)
+
+COMING UPDATES FOR NEXT VERSION (v1.0.1-beta) - [patch 1] - timeline mid 2017
+ - Setup support for multiple <organizations> with tabbed structure for TOC
+ - Setup "Options" toggle button to activate drop-down menu - {}
+ - Add more shortcut keys for UI actions
+   
+COMING UPDATES FOR SUBSEQUENT VERSION (v1.0.2-beta) - [patch 2 {nightly}] - timeline late 2017
+ - Setup config options to be loaded via the JavaScript {window.name} property space as json string
+ - Actualize "accordion" type for TOC view
+ 
+UPDATES FOR A LATER VERSION 
+ - Begin full support implementation of SCORM 2004 4th Edition (if necessary)
+ - Setup bootstrap file for loading script asynchronously
+ 

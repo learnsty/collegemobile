@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <!-- saved from url=(0045)http://webapplayers.com/inspinia_admin-v2.5/# -->
 <html>
+<!--
 <script async src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/analytics.js"></script><script id="tinyhippos-injected">if (window.top.ripple) { window.top.ripple("bootstrap").inject(window, document); }</script>
-<script id="tinyhippos-injected">if (window.top.ripple) { window.top.ripple("bootstrap").inject(window, document); }</script>
+<script id="tinyhippos-injected">if (window.top.ripple) { window.top.ripple("bootstrap").inject(window, document); }</script>-->
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +18,7 @@
 " />
     <meta property="og:image"         content="<?php echo $dirlocation.'app/views/images/'.$data['library']['library'][0]['banner'];?>" />
 
-    <meta name="keywords" content="Nigerian news,Nigerian politcs, Sports, Entertainment, Features, Lifestyle, Relationship">
+    <meta name="keywords" content="Nigerian Courseware, Online Learning, Online Tutoring">
     
     <title>College Mobile Dashboard</title>
 
@@ -33,6 +34,9 @@
     <link href="<?php echo $dirlocation;?>c_app/views/learn/inspinia/animate.css" rel="stylesheet">
     <link href="<?php echo $dirlocation;?>c_app/views/learn/inspinia/style.css" rel="stylesheet">
     <link href="<?php echo $dirlocation;?>c_app/views/css/font-awesome.css" rel="stylesheet" />
+	
+	<script src="<?php echo $dirlocation;?>c_app/views/learn/scorm/js/lib/cdv_js.js" type="text/javascript"></script>
+	<script src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/player_scorm/scorm_driver.js" type="text/javascript"></script>
 
     
     

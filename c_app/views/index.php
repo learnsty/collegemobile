@@ -25,7 +25,7 @@
     <![endif]-->
 <script src="<?php echo $dirlocation;?>c_app/views/css/indexjs/jquery.js"></script>
 <script src="<?php echo $dirlocation;?>c_app/views/css/indexjs/modernizr.js"></script>
-<script src="<?php echo $dirlocation;?>c_app/views/css/indexjs/ootstrap.min.js"></script>
+<script src="<?php echo $dirlocation;?>c_app/views/css/indexjs/bootstrap.min.js"></script>
 </head>
 <body class="wp-smartstudy">
 <div class="wrapper"> 

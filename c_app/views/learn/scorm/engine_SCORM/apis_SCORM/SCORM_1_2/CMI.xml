@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="yes" ?>
+<cmi xml:ns="" support-version="3.4" standard="AICC">
+   <datamodel attribution="storage" structure="hierachical">
+        <reference spec="SCORM 1.2" />
+   </datamodel>
+</cmi>
