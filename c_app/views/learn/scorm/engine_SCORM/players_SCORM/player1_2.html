@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="scorm-player">
+  <head>
+      <title>Synergixe - SCO Container </title>
+	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	  <meta http-equiv="X-UA-Compatible" content="IE-Edge" />
+	  <script type="text/javascript">
+           // [domain hack!!] 
+	       // fake same origin to allow communcation between <iframe> and pop-up window
+	       // engage DOM manipulation channels...
+		   /*
+            if(window.location.href.match(/localhost/gi)){
+                     document.domain = "localhost";
+            }else{
+                     document.domain = "synergixe.com";
+            }
+			*/
+			window.UPDATE_VIEWPORT = false;
+	   </script>
+	 
+	 <script type="text/javascript">
+	  
+	  (function(win, doc){
+	      var config,
+		  
+		  isEmpty = function(obj){
+		       // Null, Window, Document, Navigator
+		       if(!obj || !obj.hasOwnProperty){
+			        return false;
+			   }
+			   
+			   for(var d in obj){
+			       if(({}).hasOwnProperty.call(obj, d)){
+				      return true;
+				   }
+			   }
+			   
+			   return true;
+		  },
+		  getParent = function(){
+		     return ( win.parent || win.top );
+		  },
+		  getFrameElement = function(){
+			   // yes-webkit chrome
+			   // yes-webkit safari
+			   // yes-old-ms IE7
+			   // yes-old-ms IE8
+			   // yes-old-ms IE9
+			   // yes-ms IE10
+			   // yes-moz firefox
+			   // yes-opera opera
+			   console.log("we are now trying to get frame element where the SCO will be loaded");
+			   var body,
+			       pr = getParent(),
+			       objFrame,
+				   browserName = "",
+   			       noop = ["","",""];
+			try{   
+			
+			   if(pr){
+					    // get reference to paren't body Element
+		                body = pr.document.getElementsByTagName('body')[0];
+			            objFrame = window.frames["syn_sco_launch_box"];
+			            browserName = (body.className.match(/\s*(yes-[^\s]+)\s*([^\s\d]+)/) || noop)[2];
+						
+						
+					 switch(browserName){
+			              case "chrome":
+				                objFrame = pr.syn_co_launch_box;
+				          break;
+				          case "firefox":
+				              objFrame = pr.syn_sco_launch_box;
+				          break;
+				          case "IE":
+				              objFrame = pr.syn_sco_launch_box;
+				          break;
+				          case "safari":
+				              objFrame = pr.syn_sco_container.syn_sco_launch_box;
+				          break;
+				          case "opera":
+				              objFrame = pr.syn_sco_launch_box;
+				          break;
+			        }
+			   }
+			   
+			   
+			   if(!objFrame || isEmpty(objFrame)){
+			        switch(browserName){
+			              case "chrome":
+				              objFrame = syn_sco_container.syn_sco_launch_box;
+				          break;
+				          case "firefox":
+				              objFrame = syn_sco_launch_box;
+				          break;
+				          case "IE":
+				              objFrame = syn_sco_launch_box;
+				          break;
+				          case "safari":
+				              objFrame = syn_sco_container.syn_sco_launch_box;
+				          break;
+				          case "opera":
+				              objFrame = syn_sco_launch_box;
+				          break;
+			        }
+				}	
+			}catch(ex){
+			    
+				objFrame = {};
+				alert("Error: SSR PlayerCore could not locate SCO Launch box! \t -> "+ex.message);
+				return objFrame;
+				
+			}finally{
+			    return objFrame;
+			}   
+		  };
+		  
+		  
+		  
+		  win.onload = function(){
+		  
+		       var timer,
+			   
+			       self = this,
+
+                    frameObj = getFrameElement(),
+
+                    $w  = getParent(),									
+				   
+				    U = $w.$cdvjs.Application.command("utils"),
+					
+					path = U.handle_query("sco_path", doc.URL),
+					
+					name = U.handle_query("sco_title", doc.URL);
+					
+					if(frameObj.frameElement){
+						 frameObj.location.href = "./blank.html#"+name; // shortcut to add a fragment identifier (hash)
+					}
+			   
+			    timer =  setInterval(function(){
+				    if($w.SSR){
+					    if($w.SSR.CMI_REQUEST_START === true){
+						    $w.SSR.resetGlobals("CMI_REQUEST_START");
+						    self.UPDATE_VIEWPORT = true;
+						}
+			            if($w.SSR.CMI_REQUEST_END === true){
+						   $w.SSR.resetGlobals("CMI_REQUEST_END");
+					       $w.SSR.consoleLog("View up!");
+						   
+					       if(frameObj.location){
+						        frameObj.location.href = "";
+			                    frameObj.location.href = path; // Phew! finally, launch the SCO... (Omo, i don tire#)
+						   }   
+						   $w = name = U = path = frameObj = null; // release memeory...
+						   clearInterval(timer);
+						}   
+					}  
+			   }, 200);
+		  };
+		  
+		  win.doUnload = function(){
+		       var $w = getParent();
+		       setTimeout(function(){
+			         // incase the user accidentally closes the window with a button other than SSR navigation buttons 
+					 // (currently works for only IE 7/8/9/10) ...still trying to find a fix for Firefox & Chrome
+			        if($w.SSR.HAS_COM_RIGHTS){
+					     $w.resetGlobals("HAS_COM_RIGHTS");
+					     $w.API && $w.API.LMSFinish("");
+					}	 
+					$w.SSR.consoleLog("unloading Asset/SCO...");
+			   }, 0);
+		  };
+		  
+		  }(this, this.document));
+	  </script>
+  </head>
+  <frameset rows="100%, *" id="syn_sco_container" name="syn_sco_container" border="0" frameborder="0" framespacing="0" onbeforeunload="doUnload()" onunload="doUnload()">
+     <frame src="about:blank" id="syn_sco_launch_box" name="syn_sco_launch_box" />
+  </frameset><noframes></noframes>
+</html>

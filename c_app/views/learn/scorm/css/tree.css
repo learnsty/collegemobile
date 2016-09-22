@@ -1,0 +1,151 @@
+/** tree.css */
+ 
+   
+   .tree-frame{
+      padding-top:20px;
+      width:100%;
+      position:relative; /* IE 6 / 7 cure to overflow bug */
+   }
+
+   .tree-root > .place-holder{
+      font-size:17px;
+      letter-spacing:0px;
+      color:#4477a1;
+   }
+   
+   .place-holder{
+      display:inline-block;
+      width:auto;
+      padding-right:20px;
+      line-height:30px;
+      font-size:12px;
+      height:30px;
+   }
+   
+   .tree-frame,
+   .tree-joint{
+      height:auto !important;
+      list-style-position:outside;
+   }
+
+   .tree-joint{
+       width:100%;
+       list-style-type:none;
+       background:url('../images/pipe.png') no-repeat top left;
+   }   
+   
+   .tree-title{
+       letter-spacing:1px;
+       font-family:'Helvetica', Arial, Lucida Sans;
+       text-indent:-1px;
+   }
+   
+   .title-bold{
+       font-weight:bold;
+       font-style:normal;
+   }
+   
+   .tree-joint > li{
+       /*overflow:auto;*/
+       padding-left:20px;
+       width:auto;
+       height:30px;
+       cursor:default;
+   }
+   
+   .tree-joint > .anchor-closed{
+        background:url('../images/folder-closed.png') no-repeat 0px 6px;
+        white-space:nowrap;
+        overflow:hidden;
+   }
+   
+   .tree-joint > .no-anchor{
+        background:url('../images/paper.png') no-repeat 0px 6px;
+   }
+
+   .tree-joint > .currently-launched{
+       background:none;
+       background-color:transparent;
+       background-image:url('../images/viewed-paper.png'); 
+       background-repeat:no-repeat;
+       background-position:0px 6px;
+   } 
+
+   .tree-joint .anchor-disabled{
+         color:#bbbbbb;
+         cursor:not-allowed;
+         opacity:0.68;
+         filter:alpha(opacity=68);
+         -moz-box-shadow:none;
+         -webkit-box-shadow:none;
+         box-shadow:none;
+   }
+   
+   li > .tree-title{
+       width:auto;
+       display:block;
+       padding-right:30px;
+       text-decoration:none;
+       text-align:left;
+       height:28px;
+       border-bottom:2px solid transparent;
+       color:#000000;
+       margin-left:5px;
+   }
+   
+   li > .tree-leaf:hover .place-holder{
+      border-bottom:2px solid #dddeee;
+   }
+   
+   li > .tree-title:hover .place-holder{
+      color:#dd0000;
+      cursor:pointer;
+   }
+   
+   li > .tree-leaf:active{
+       background-color:transparent; /*#dd0000*/
+   }
+   
+   li > .tree-leaf:active .place-holder{
+       color:#ffffff;
+   }
+
+   .tree-joint .anchor-disabled:hover .place-holder{
+         color:#bbbbbb;
+         cursor:not-allowed;
+         border-bottom-style:solid;
+         border-bottom-color:transparent;
+         border-bottom-width:0px;
+   }
+   
+   .no-anchor > .tree-leaf{
+	   font-weight:100;
+	   font-style:italic;
+	   font-variant:ultra-condensed;
+   }
+
+   li > .title-bold:active .place-holder{
+       color:#ffffff;
+   }   
+
+   .tree-joint > .anchor-open{
+         background:url('../images/folder-open.png') no-repeat 0px 6px;
+	 height:auto !important;
+         white-space:nowrap;
+    }
+
+    li > .leaf-failed{
+         background:url('../images/failed.png') no-repeat 0% 50%;
+    }
+
+    li > .leaf-passed{
+         background:url('../images/attempted.png') no-repeat right center;
+
+    }
+
+    li > .leaf-incomplete{
+         background:url('../images/not-completed.png') no-repeat right center;
+    }
+    li > .leaf-completed{
+         background:url('../images/complete.png') no-repeat 96% 50%;
+    }

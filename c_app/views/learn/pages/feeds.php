@@ -297,8 +297,9 @@ If the owner is not the creator of this classroom. That is the only condition in
 		<div class="col-lg-3">
                             
                             <div class="ibox float-e-margins">
-                                <div class="ibox-title" style="height:400px">
-                                 <h5>Projects Column</h5>
+                            <!--<div class="ibox-title" style="height:400px">
+                            <!-- <h5>Projects Column</h5> -->
+							<a href="#" class="btn btn-success" onclick="javascript:scormLauncher('');">Launch CourseWare</a>
                             <!--
 
                                    
@@ -320,7 +321,7 @@ If the owner is not the creator of this classroom. That is the only condition in
                                         </a>
                                     </div>
                                     !-->
-                                </div>
+                           <!-- </div>-->
                                 
                                 
                                 <div class="ibox-content no-padding" style="display:none">
