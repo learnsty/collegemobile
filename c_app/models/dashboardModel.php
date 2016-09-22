@@ -37,7 +37,10 @@ ini_set('display_errors',1);
 	$name=date('Y_m_d_').rand(1000,100000);
 	$name2='banner_'.date('Y_m_d_').rand(1000,100000);
 	$banner_array_list=array('jpg','jpeg','png');
-	
+        
+	///////SET UP A REPLACE ARRAY LIST    
+	$replace_array=array(",","'","`",";"," ","!","-","--","â€™","/","#","@","%","&","*","^","’","_","!","",":",">","<",",",".","}","{","=");  
+        
 	if($_FILES['courseware_file']['name']!=''){
 	$file_upload=$filter->file_upload($_FILES['courseware_file'],'10000000','c_app/views/courseware/',$array_list,$name);
 	$banner_upload=$filter->file_upload($_FILES['bannerimage_file'],'1000000','c_app/views/courseware/',$banner_array_list,$name2);
@@ -46,7 +49,7 @@ ini_set('display_errors',1);
 	if(($file_upload[0]=='1')||($_FILES['courseware_file']['name']=='')){
 	//////////IF THE REQUEST IS AN EDIT REQUEST///
 	if(isset($_GET['edit'])){
-	$update_array=array('course_title'=>$_POST['courseware_title'],'course_description'=>$_POST['courseware_description'],'course_duration'=>$_POST['courseware_duration'],'course_outline'=>$_POST['courseware_outline'],'catalogue_id'=>$_POST['courseware_catalogue'],'skillset_id'=>$_POST['courseware_skillset'],'classroom_id'=>$_POST['courseware_classroom'],'level'=>$_POST['courseware_level']);
+	$update_array=array('course_title'=>$_POST['courseware_title'],'course_description'=>$_POST['courseware_description'],'course_duration'=>$_POST['courseware_duration'],'course_outline'=>$_POST['courseware_outline'],'catalogue_id'=>$_POST['courseware_catalogue'],'skillset_id'=>$_POST['courseware_skillset'],'classroom_id'=>$_POST['courseware_classroom'],'level'=>$_POST['courseware_level'],'url'=>str_replace($replace_array,'-',$_POTS['courseware_title']));
 	
 	if($_FILES['courseware_file']['name']!=''){
 	$columnarray=array('path'=>substr($file_upload[1],12),'banner'=>substr($banner_upload[1],12));	
@@ -55,7 +58,7 @@ ini_set('display_errors',1);
 	$return['msg']=$update=$crud->dbupdate('courseware',$update_array,"courseware_id='".$_GET['edit']."' AND staff_id='".$_SESSION['accessLogin']['user_id']."'");
 	}else{
 		file_put_contents(__DIR__ . '../logs/storage.log', 'Exectued!');
-	$insert_array=array('staff_id'=>$_SESSION['accessLogin']['user_id'],'date'=>$date,'course_title'=>$_POST['courseware_title'],'course_description'=>$_POST['courseware_description'],'course_duration'=>$_POST['courseware_duration'],'course_outline'=>$_POST['courseware_outline'],'catalogue_id'=>$_POST['courseware_catalogue'],'skillset_id'=>$_POST['courseware_skillset'],'classroom_id'=>$_POST['courseware_classroom'],'level'=>$_POST['courseware_level'],'path'=>substr($file_upload[1],12),'banner'=>substr($banner_upload[1],12),'status'=>'1');
+	$insert_array=array('staff_id'=>$_SESSION['accessLogin']['user_id'],'date'=>$date,'course_title'=>$_POST['courseware_title'],'course_description'=>$_POST['courseware_description'],'course_duration'=>$_POST['courseware_duration'],'course_outline'=>$_POST['courseware_outline'],'catalogue_id'=>$_POST['courseware_catalogue'],'skillset_id'=>$_POST['courseware_skillset'],'classroom_id'=>$_POST['courseware_classroom'],'level'=>$_POST['courseware_level'],'path'=>substr($file_upload[1],12),'banner'=>substr($banner_upload[1],12),'status'=>'1','url'=>str_replace($replace_array,'-',$_POTS['courseware_title']));
 	$return['msg']=$insert=$crud->dbinsert('courseware',$insert_array);
 	
 	/* INSERTING INTO THE FEEDS TABLE */
@@ -555,7 +558,15 @@ $forminsertarray=array('classroom_title'=>$classroom_title,'classroom_descriptio
 	return $return;	
 	}
 	
-        
+    
+    public function checkcontent($url){
+    $this->crud=new Crud; 	  
+    
+    $return['content']=$this->crud->dbselect("courseware","*","url='".mysql_real_escape_string($url)."'",""); 
+    
+   
+    return $return;    
+    }
 
         
 	

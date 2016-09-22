@@ -22,7 +22,7 @@
     <div class="panel-body" style="padding-top:4px;padding-bottom:4px">
    <h5 style="color:#0C3;">CollegeMobile Premium</h5>
     Thousands of students are waiting for you. Upgrade Your account to today!<br/>
-     <button class="btn btn-primary btn-sm" ng-click="uploadpass()">Read More</button>    
+       
     </div>
     </div> 
        

@@ -79,7 +79,7 @@
 			  	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="cs-section-title left">
 					  <h2>Catalogue &amp; Courseware <?php echo $data['keydate'];?></h2>
-					  <p style="color:#aaaaaa !important;">We've got you covered in your carrier </p>
+					  <p style="color:#aaaaaa !important;">We've got you covered in your career </p>
 					</div>
               	</div>
 				<aside class="section-sidebar col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -107,7 +107,7 @@
 				}
 					?>
 					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="margin:0">
-						<div class="cs-courses courses-grid">
+						<div class="cs-courses courses-grid" style="box-shadow:1px 1px 1px #e8e8e8">
 							<div class="cs-media" style="max-height:100px;overflow:hidden">
 								<figure><a href="#"><img src="<?php echo $dirlocation;?>c_app/views/<?php echo $grab['banner'];?>"  alt=""></a></figure>
 							</div>

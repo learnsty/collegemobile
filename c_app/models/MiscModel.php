@@ -66,8 +66,24 @@ if($file_size<=$limitsize){
 $path=$directory_path;
 $time=time();
 $path_name=$path.$name.'.'.$ext;
-$msg=move_uploaded_file($file['tmp_name'],$path_name);
 
+if($ext=='zip'){
+   $target_path = $path . $file_name;
+   $target_folder = $name . "/";
+   $msg = move_uploaded_file($file['tmp_name'], $target_path);
+    if($msg){
+        $zip = new ZipArchive();
+        $x = $zip->open($target_path);
+        if($x === TRUE){
+            $zip->extractTo($path . $target_folder);
+            $zip->close();
+            unlink($target_path);
+        }
+    }
+    $path_name=$target_folder;
+}else{
+   $msg=move_uploaded_file($file['tmp_name'],$path_name);
+}
 /*if($move==TRUE){
 $form_array=array(
 'date'=>date('Y/m/d'),

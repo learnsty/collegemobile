@@ -15,7 +15,7 @@ class App{
         else{
             if($url[0]!=''){
                            
-            $this->controller='content';    
+            $this->controller='pages';    
         
             
             }

@@ -17,7 +17,7 @@ class content extends Controller{
 	if(!isset($_SESSION['accessLogin'])){
 	die(header('Location:login'));
 	}
-
+    
 
 
   		$this->url = $url;
