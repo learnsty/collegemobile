@@ -1,1 +1,19 @@
-@charste 'utf-8';
+/* interface for PDF viewer - Copyright (c) 2016 CollegeMoile */
+
+@charset 'utf-8';
+
+.head-panel {
+  background-color:#3e3e3e;
+  width:100%;
+  padding:20px 10px;
+}
+
+.sect-panel {
+   width:100%;
+   height:768px;
+   overflow:hidden;
+}
+
+.foot-panel {
+
+}
