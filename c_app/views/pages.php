@@ -114,7 +114,7 @@ $getownerdetails=$crud->dbselect('lecturer','*',"rand='".$data['details']['conte
       </div>
 </div>
       
-      
+<?php include('snipets/footer.php');?>      
 <script src="<?php echo $dirlocation;?>c_app/views/js/jquery.js"></script>
     <script src="<?php echo $dirlocation;?>c_app/views/js/angular/angular.js"></script>
 	 <script src="<?php echo $dirlocation;?>c_app/views/js/app.js"></script>

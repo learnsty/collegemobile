@@ -1,0 +1,248 @@
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
+@CHARSET "utf-8";
+
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,
+ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {
+ margin:0px;
+ padding:0px;
+ border:0; 
+ border:none;
+ outline:0; 
+ outline:none; 
+ font-weight:inherit;
+ font-style:inherit; 
+ font-size:100%; 
+ font-family:inherit;
+ vertical-align:baseline; 
+}
+
+*{
+   box-sizing:border-box;
+   -moz-box-sizing:border-box;
+   -webkit-box-sizing:border-box;   
+}
+
+
+a:focus{ /* exclude IE only */
+   outline:0; 
+   outline:none; 
+} 
+
+input,button,textarea,select{
+  text-rendering:optimizeLegibility;
+  font-size:100%;
+  *font-size:100%;
+}
+html,button,input,select,textarea {
+    font-family: sans-serif;
+}
+
+figure,
+form{
+  margin:0;
+}
+
+html{
+ font-size:100%;
+ -webkit-text-size-adjust: 100%;
+ -moz-text-size-adjust: 100%;
+ -ms-text-size-adjust:100%;
+}
+
+body { 
+  margin:0; 
+  line-height:1;
+  background:#ffffff; 
+}
+
+
+ul {
+  list-style-type: disc;
+}
+ol {
+  list-style-type: decimal;
+}
+
+*html ol li,  /* fix IE 6 only ordered list bug (especially when hasLayout is triggered) */
+*+html ol li{ /* fix IE 7 only ordered list bug (especially when hasLayout is triggered) - TODO: check if list bugs are also present in IE6/7 standards mode (just to be sure) */
+  display:list-item;
+  list-style-type:none;
+} 
+
+*html ul li,
+*+html  ul li{ /* fix IE 6 / 7 unordered list bug */
+    list-style-position:inside; 
+    display:list-item;
+    list-style-type:none;
+} 
+  
+table { 
+  border-collapse:separate; 
+  border-spacing:0;
+}
+
+caption,th,td { 
+  text-align:left; 
+  font-weight:normal; 
+  vertical-align: middle; 
+}
+
+blockquote:before,blockquote:after,q:before,q:after { 
+ content:""; 
+ content:none;
+}
+
+blockquote, q { 
+  quotes:""; 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family:inherit;
+  margin:0; /* fisrtly reset margins */
+  font-weight:bold;
+  /* line-height:1.1; */
+  color:#333333;
+  text-rendering:optimizelegibility;
+}
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0; /* then set margins  again */
+}
+ 
+h2 {
+    font-size: 1.5em;
+    margin: 0.83em 0;
+}
+ 
+h3 {
+    font-size: 1.17em;
+    margin: 1em 0;
+}
+ 
+h4 {
+    font-size: 1em;
+    margin: 1.33em 0;
+}
+ 
+h5 {
+    font-size: 0.83em;
+    margin: 1.67em 0;
+}
+ 
+h6 {
+    font-size: 0.75em;
+    margin: 2.33em 0;
+}
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+p,
+pre {
+    margin: 1em 0;
+}
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+a{
+  background-color:transparent;
+  color:#000088;
+  text-decoration:none;
+}
+
+a:focus {
+  outline:thin dotted #333333;
+}
+
+a:active,
+a:hover{
+  color: #333333;
+  text-decoration: underline;
+}
+
+
+a[href^="javascript:"],
+a[href^="#"]{
+   border:none;
+}
+
+img{
+width:auto\9; /* IE6-8 only */
+vertical-align:middle;
+color:transparent;
+border:0;
+border:none;
+padding:0px;
+margin:0px;
+height:auto;
+-ms-interploation-mode:bicubic; /* IE7-9 */
+}
+
+img.responsive{
+  max-width:100%;
+  display:block;
+  padding:1px;
+  width:auto;
+  min-height:1px;
+  *height:auto !important;
+  *height:1px;
+  -pie-png-fix:true;
+}
+
+.img-thumbnail {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  padding: 4px;
+  line-height:1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+ul.list-menu,
+ol.list-menu {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+ul.list-menu ul,
+ol.list-menu ul,
+ul.list-menu ol,
+ol.list-menu ol {
+  margin-bottom: 0;
+}
+
+ul.list-menu.list-unstyled,
+ol.list-menu.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+ul.list-menu.list-inline,
+ol.list-menu.list-inline {
+  padding-left: 0;
+  margin-left: -5px;
+  list-style: none;
+}
+
+.list-inline > li {
+  display: inline-block;
+  display:-moz-inline-stack;
+  padding-right:5px;
+  padding-left:5px;
+  margin-left:6px;
+  *display:inlie;
+  *zoom:1;
+}
