@@ -1,7 +1,8 @@
 <?php
 $crud=new Crud;
 	$split=strtolower(end(explode('.',$data['library']['library'][0]['path'])));
-	
+
+/* CHECK FOR THE OWNER OF A COURSEWARE */
 $getownerdetails=$crud->dbselect('lecturer','*',"rand='".$data['library']['library'][0]['staff_id']."'","");
 	if($getownerdetails[2]==0){
 	$getownerdetails=$crud->dbselect('student','*',"rand='".$data['library']['library'][0]['staff_id']."'","");
@@ -10,8 +11,14 @@ $getownerdetails=$crud->dbselect('lecturer','*',"rand='".$data['library']['libra
 	}
 	
 	}
-	
-	
+
+
+                                 
+   /////// CHECK IF USER HAVE ENROLLED FOR THIS COURSEWARE //////
+ $checkenrol=$crud->dbselect('enrol','*',"courseware_id='".$data['library']['library'][0]['courseware_id']."' AND staff_id='".$_SESSION['accessLogin']['user_id']."'","");
+
+
+
 ?>
 
 
@@ -19,12 +26,12 @@ $getownerdetails=$crud->dbselect('lecturer','*',"rand='".$data['library']['libra
  <meta name="description" content="<?php echo $dirlocation;?>learn/courseware/view?view=<?php echo $_GET['view'];?>">
      <meta property="og:url" content="<?php echo $dirlocation.$data['Details'][0]['year'].'/'.$data['Details'][0]['month'].'/'.$data['Details'][0]['link'].'/';?>" />
     <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="<?php echo $data['library']['library'][0]['course_description'];?>" />
-    <meta property="og:description"   content="<?php echo $data['library']['library'][0]['course_description'].'...';?>
+    <meta property="og:title"         content="<?php echo utf8_decode($data['library']['library'][0]['course_description']);?>" />
+    <meta property="og:description"   content="<?php echo utf8_decode($data['library']['library'][0]['course_description']).'...';?>
 " />
     <meta property="og:image"         content="<?php echo $dirlocation.'app/views/images/'.$data['library']['library'][0]['banner'];?>" />
 
-    <meta name="keywords" content="Nigerian news,Nigerian politcs, Sports, Entertainment, Features, Lifestyle, Relationship">
+    <meta name="keywords" content="<?php echo $data['library']['library'][0]['course_title'];?>">
     
 
 
@@ -35,7 +42,7 @@ $getownerdetails=$crud->dbselect('lecturer','*',"rand='".$data['library']['libra
 //alert(vid_duration);
 </script>
 
-<div class="row" style="padding:0;" ng-app="jaraja"  ng-controller="Teach">
+<div class="row" style="padding:0;">
 
 <!----COURSEWARE IN THE CLASSROOM-->
 <div class="col-lg-12">
@@ -45,6 +52,7 @@ $getownerdetails=$crud->dbselect('lecturer','*',"rand='".$data['library']['libra
 <h1 style="margin-top:0;text-align:center"><i class="fa fa-book"></i>: <?php echo $data['library']['library'][0]['course_title'];?></h1>
 <hr style="margin-bottom:0"/>
 
+<?php if(!isset($_GET['enrol'])){?>
 <div class="row">
 <div class="col-lg-7">
 <div class="sharebuttons" style="margin-bottom:7px;">
@@ -67,17 +75,45 @@ $getownerdetails=$crud->dbselect('lecturer','*',"rand='".$data['library']['libra
 
 <p style="line-height:30px;">
 <h4>About the course</h4>
- <?php echo $data['library']['library'][0]['course_description'];?>
+ <?php echo utf8_decode($data['library']['library'][0]['course_description']);?>
  </p>
 <hr />
 <p style="line-height:30px;">
 <h4>Outline</h4>
- <?php echo $data['library']['library'][0]['course_outline'];?>
+ <?php echo utf8_decode($data['library']['library'][0]['course_outline']);?>
  </p>
 <hr />
 
-<button class="btn btn-danger btn-block">Enroll</button>
+    <!--CHECK IF THE LOGIN USER IS THE OWNER OF TEH COURSEWARE---->
+ <?php if($data['library']['library'][0]['staff_id']!=$_SESSION['accessLogin']['user_id']){?>  
+    
+ <?php if($checkenrol[2]==0){?>  
+    
+<?php if($data['library']['library'][0]['fee']==''){?>    
+ <a href="#" data-toggle="modal" data-target="#enrolModal" ng-click="enrol(&#39;<?php echo $data['library']['library'][0]['courseware_id'];?>&#39;, &#39;<?php echo $data['library']['library'][0]['course_title'];?>&#39;);" class="btn btn-danger btn-block">Enroll</a>
+<?php }else{?>
 
+
+  <form action="/process" method="POST" style="margin:0 auto;text-align:center" >
+  <script
+    src="https://js.paystack.co/v1/inline.js" 
+    data-key="pk_test_5f710ad1d481bc6ecd8013e6a1cf2f235045b5df"
+    data-email="mylearnsty@gmail.com"
+    data-amount="<?php echo $data['library']['library'][0]['fee'];?>00"
+    data-ref="<?php echo $data['library']['library'][0]['course_title'];?>"
+  >
+  </script>
+</form>
+
+<?php }?>    
+    <?php }else{?>
+    
+  <a href="javascript:void(0);" onclick="javascript:scormLauncher (<?php echo $dirlocation . 'c_app/views/learn/scorm/'; ?> + 'runtime.php?debug=on&studentId=<?php echo $_SESSION['accessLogin']['user_id'];?>&courseId=<?php echo $data['library']['library'][0]['courseware_id'];?>&studentName=<?php echo str_replace(' ', ',',$_SESSION['accessLogin']['full_name']);?>&courseRootDir=<?php echo $dirlocation;?>c_app/views/courseware/')" class="btn btn-success" style="margin-top:10px">Goto Courseware</a>
+    
+    <?php }?>
+   
+<?php }?>
+    
 <?php
 $video_array=array('mp4','mgeg');
 $image_array=array('jpg','png','gif');
@@ -100,6 +136,12 @@ if(in_array($split,$video_array)){?>
 </div>
 
 <div class="col-lg-5">
+ <?php if($data['library']['library'][0]['fee']!=''){?>   
+<h2 style="font-weight:normal;color:#0968b9"><b>&#x20A6;</b> <?php echo $data['library']['library'][0]['fee'];?></h2>   
+<?php }else{?>
+    <h2 style="font-weight:normal;color:#0968b9">Free</h2>
+<?php }?>
+    <hr/>
 <img src="<?php echo $dirlocation.'c_app/views/'.$data['library']['library'][0]['banner'];?>" width="100%" />
 <div style="margin-top:10px"></div>
 <?php
@@ -110,6 +152,9 @@ $crud=new Crud;
 	/////// CHECK IF USER HAS LIKED THE COURSEWARE
 	$checklike=$crud->dbselect('liked','*',"user_id='".$_SESSION['accessLogin']['user_id']."' AND table_id='".$data['library']['library'][0]['courseware_id']."'AND table_name='courseware'",'');
 	
+
+                                 
+                                 
 		?>
 <?php if($checkpin[2]==0){?>                                                            
 <a href="<?php echo $dirlocation;?>learn/courseware/view?view=<?php echo $data['library']['library'][0]['courseware_id'];?>&&pin=<?php echo $data['library']['library'][0]['courseware_id'];?>&&table=courseware" class="btn btn-white btn-xs"><i class="fa fa-tag"></i> Clip </a>
@@ -137,9 +182,26 @@ $crud=new Crud;
  <?php echo $data['library']['library'][0]['course_duration'];?><br/>
 </p>
 </div>
+</div>
 
 
 </div>
+<?php }elseif($_GET['enrol']){?>
+    <div class="row">
+<div class="col-lg-7" style="margin:auto; float:none;text-align:center">
+    <h1>Congratulations <?php echo $_SESSION['accessLogin']['full_name'];?>!</h1>
+    You have successfully enrolled For This Course
+<br/>
+      <a href="javascript:void(0);" onclick="javascript:scormLauncher (<?php echo $dirlocation . 'c_app/views/learn/scorm/'; ?> + 'runtime.php?debug=on&studentId=<?php echo $_SESSION['accessLogin']['user_id'];?>&courseId=<?php echo $data['library']['library'][0]['courseware_id'];?>&studentName=<?php echo str_replace(' ', ',',$_SESSION['accessLogin']['full_name']);?>&courseRootDir=<?php echo $dirlocation;?>c_app/views/courseware/')" class="btn btn-success" style="margin-top:10px">Goto Courseware</a>
+    </div>
+        
+    </div>
+<?php }?>
+    
+    
+    
+    
+    
 
 </div>
 

@@ -130,7 +130,7 @@ name="myForm" method="post" novalidate id="register" class="login" style="float:
                             
                             <div class="input-group">
                               <div class="input-group-addon">@</div>
-                             <input type="email" class="form-control" id="exampleInputAmount" placeholder="Confirm Password" name="confirm_email" ng-model="email_verify" required data-password-verify="email">
+                             <input type="email" class="form-control" id="exampleInputAmount" placeholder="Confirm Email" name="confirm_email" ng-model="email_verify" required data-password-verify="email">
                             </div>
                             
                             

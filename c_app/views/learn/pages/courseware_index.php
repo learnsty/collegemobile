@@ -49,7 +49,7 @@ $grabvalues[]=$grab;
                             <div class="dataTable_wrapper" style="height:40px;overflow:hidden">
                             <span style="font-size:11px">
                           
-                            <?php echo substr($grab['course_description'],0, 40).'...';?>
+                            <?php echo substr(utf8_decode($grab['course_description']),0, 40).'...';?>
                                </span> 
                           </div>
                           
@@ -115,7 +115,9 @@ $split=end(explode('.',strtolower($grab['path'])));
                         <h4 style="padding:0 5px"><?php echo substr($grab['course_title'],0, 20).'...';?></h4>
                             <div class="dataTable_wrapper" style="height:40px;overflow:hidden">
                             <div style="font-size:11px;padding:0 5px">
-                            <?php echo substr($grab['course_description'],0,50).'...';?>
+                            <?php echo $sub=substr(utf8_decode($grab['course_description']),0,50);
+                               
+                            ?>
                                </div> 
                           </div>
                           

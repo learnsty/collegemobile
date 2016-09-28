@@ -59,8 +59,8 @@
     // possible vocabulary ---> "persistent" , "volatile"
     this.storageMediaType = "persistent"; // persistent storage media include one of the following --> {cookies, server DB, localStorage}
     this.transportVerbs = ["CMI_POST", "CMI_GET", "STATE_POST"];
-    this.saveDataURL = "http://www.collegemobile.net/scorm/tracking/set"; // URL path to Tracking DB for saving CMI data
-    this.collectDataURL = "http://www.collegemobile.net/scorm/tracking/get"; // URL path to Tracking DB for retrieving CMI data
+    this.saveDataURL = "http://www.collegemobile.net/scorm/tracking/scormset"; // URL path to Tracking DB for saving CMI data
+    this.collectDataURL = "http://www.collegemobile.net/scorm/tracking/scormget"; // URL path to Tracking DB for retrieving CMI data
     this.saveDataOnDirty = true; // save data whenever the CMI database is flagged 'dirty' (i.e on every call to {LMSSetValue} / {SetValue})
     
     /******************************

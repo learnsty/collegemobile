@@ -39,6 +39,17 @@
             background-color:#f5f5f5;
         }
   </style>
+  <script type="text/javascript">
+      (function(){
+            var w = window.innerWidth || document.body.clientWidth;
+            var h = window.innerHeight || document.body.clientHeight;
+          
+            var ew = w - 235;
+            var eh = h - 80;
+            add_stylesheet("width:"+ew+"px;", "html #viewport");
+            add_stylesheet("height:"+eh+"px;", "html #shade";
+      }());
+  </script>
   <script src="./js/lib/cdv_js.js" type="text/javascript"></script>
   <script src="./js/engineConfig.js" type="text/javascript"></script>
   <script src="./js/engineSetup.js" type="text/javascript"></script>
@@ -97,7 +108,7 @@
                 </div>
 		</div>		
 		
-       <div class="row-span shade relative clear-fix">
+       <div id="shade" class="row-span shade relative clear-fix">
 	      <div id="tab-deck" style="background-color:red;height:30px;line-height:27px;width:241px;z-index:300;" class="absolute snap-top-left"><span>TABLE OF CONTENTS</span></div>
 	      <div id="toc-menu" class="colm-3 alpha mainview package-visible" style="margin-right:0;margin-left:5px;width:235px;">
 		       <div id="course-toc" class="package-toc unselectable">
@@ -106,7 +117,7 @@
 		  </div>
 		  <div id="viewport" class="colm-9 omega mainview viewport" style="margin-left:1px">
 		       <div id="sco-launch" class="embed-responsive embed-responsive-16by9">
-                   <iframe src="./synergixe.html" aria-relaunch-path="./engine_SCORM/players_SCORM/load.blank.html" allowtransparency="true" scrolling="auto" hspace="0" vspace="0" marginwidth="0" marginheight="0" frameborder="0" name="runtime" id="runtime" class="runtime">
+                   <iframe src="./collegemobile.html" aria-relaunch-path="./engine_SCORM/players_SCORM/load.blank.html" allowtransparency="true" scrolling="auto" hspace="0" vspace="0" marginwidth="0" marginheight="0" frameborder="0" name="runtime" id="runtime" class="runtime">
                         <p> Sorry, ths browser does not support the (SSR) viewport. You may need to use another browser </p>
                    </iframe> 
               </div>			 

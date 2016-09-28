@@ -1,11 +1,7 @@
 /*!
- * @project: <synergixe - SynLMS>
- * @file: <CMI_DB.js> - 
- * @author: <https://team.synergixe.com.ng>
- * @created: <11/03/2015>
+ * @project: learnsty
  * @desc: {this implements the SCORM computer managed instruction (CMI data) database to store learning data}
  * @remarks: {SCORM PERSISTENCE_LAYER v1.2}
- * @contributors: { @patrick, @chris, @dominic }
  */
  
 (function (w, d){

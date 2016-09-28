@@ -7,7 +7,8 @@ class App{
 	public function __construct(){
 
 		$url=$this->parseUrl();
-        $dirlocation="http://".$_SERVER['HTTP_HOST']."/".$url[0]."/";
+        
+        $dirlocation="http://".$_SERVER['HTTP_HOST']."/collegemobile/";
 		if(file_exists("c_app/controllers/".$url[0].".php")){
             
 			$this->controller=$url[0];

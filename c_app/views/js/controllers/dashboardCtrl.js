@@ -1,9 +1,9 @@
 mainApp.controller('DashboardCtrl', ['$scope', '$http','$location', 'UserService','$localStorage', function($scope, $http, $location, User, $localStorage){
 	
     
-
+   
     $scope.delete = function (id, name) {
-
+ 
     $('#deletename').text(name);
 
         
@@ -31,9 +31,21 @@ mainApp.controller('DashboardCtrl', ['$scope', '$http','$location', 'UserService
     
     }
     
+    }
     
+     /* ENROLLING ON A COURSEWARE */
+    $scope.enrol = function (id, name) {
+   
+        
+    $scope.confirmenrol = function(){
+    window.location.href=User.dirlocation+'/learn/courseware/view?view='+id+'&&enrol='+id;
+    
+    }
     
   }
+    
+
+    
     
     $scope.uploadpass = function(){
     $('.loader2').show();   

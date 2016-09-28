@@ -547,6 +547,7 @@
                             </div>
 
 
+    
     <!----- Modal Delete Window --->    
     <div class="modal inmodal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
                                 <div class="modal-dialog modal-sm">
@@ -573,6 +574,34 @@
     
 
 
+    <!----- Javascript Button Trigger --->    
+    <div class="modal inmodal fade" id="enrolModal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                            <h5 class="modal-title">Hello <br/><?php echo $_SESSION['accessLogin']['full_name'];?></h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>By enroling for this courseware, You have read and agreed to our terms and conditions
+                                            
+                                            <ul>
+                                            <a href="#"><li>Terms and Conditions</li></a>
+                                            <a href="#"><li>Privacy Policy</li></a>
+                                           
+                                            </ul>
+                                            
+                                            </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                                            <a href="" class="btn btn-primary" ng-click="confirmenrol();">Enroll</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+    
                             
                             
                             

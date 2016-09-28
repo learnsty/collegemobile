@@ -16,6 +16,7 @@
 
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/color.css" rel="stylesheet">
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/responsive.css" rel="stylesheet">
+<link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/responsive.css" rel="stylesheet">
 
     <link rel="stylesheet" href="css/reset.css">
 
@@ -34,65 +35,30 @@
   <div class="wrapper"> 
 
       <?php include('c_app/views/snipets/header.php');?>
-
-<div class="col-lg-4" style="float:none;margin:80px auto;text-align:center;">
-
-<h2 style="color:#06C">Welcome To College Mobile</h2>	
-   <form
-name="loginForm" action="<?php $_SERVER['PHP_SELF'];?>" method="post" class="login" style="float:none;margin:auto;padding:0;width:100%">
-        	
-  <fieldset>
-
-        <div style="clear:both"></div>
-  	<legend class="legend">Login</legend>
+<div class="col-lg-12" style="background:#069;padding:25px 0">
+    <div class="container" style="padding-left:25px">
+                        
+        <ul class="top-nav nav-left" style="color:#fff">                 
+<h2><?php echo $data['profile']['profile'][0]['full_name'];?></h2>
+            <h4><?php echo $data['profile']['profile_type'];?></h4>
+             </ul>
+      
+        </div>
     
-
-     <?php if (isset($data['ReturnMessage']['msg'])){?>
-        		<div class="alert alert-danger" style="display:nne;margin:0 10px">
-                <?php echo $data['ReturnMessage']['msg'];?>
-                </div>
-                <?php }?>
     
-      <span style="color:red" ng-show="loginForm.login_username.$dirty && loginForm.login_username.$invalid">
-  <span ng-show="loginForm.login_username.$error.required">Username is required.</span>
-  </span>
-
-            
-    <div class="input">
-    	<input required type="phone" placeholder="Phone Number" name="login_username" ng-model="login_username"/>
-      <span class="spantab"><i class="fa fa-phone"></i></span>
-    </div>
-    
-    <span style="color:red" ng-show="loginForm.login_password.$dirty && loginForm.login_password.$invalid">
-   <span ng-show="loginForm.login_password.$error.required">Password is required.</span>
-  </span>        
-   
-    <div class="input">
-    	<input type="password" placeholder="Password" required name="login_password" ng-model="login_password" />
-      <span class="spantab"><i class="fa fa-lock"></i></span>
-    </div>
-    
-    <div class="input">
-    <h5>I am a:</h5>
-    <select class="form-control" name="login_type">
-         <option value="student">Student</option>
-          <option value="lecturer">Teacher</option>
-           <option value="contentprovider">Content Partner</option>
-          </select>
-
-    </div>
-       <input type="hidden" value="<?php echo $_GET['return_to'];?>" name="return_to">
-    <button type="submit" ng-disabled="loginForm.$invalid" class="submit"><i class="fa fa-long-arrow-right"></i></button>
-   
-    
-    <a class="btn btn-sm btn-primary pull-right" style="margin:35px 5px 5px 5px;" href="<?php echo $dirlocation;?>register">I am a new User</a>
-  </fieldset>
-  
-  
-  
-</form>
-
 </div>
+      
+      <div class="container" style="margin-top:5px">
+      
+      <div class="col-lg-1" style="float:left">
+        <img src="<?php echo $dirlocation.'c_app/views/images/'.$data['profile']['profile'][0]['photo'];?>" style="max-height:250px">
+        </div>
+      </div>
+      
+      <div class="col-lg-10" style="float:left">
+      <?php echo $data['profile']['profile'][0]['about_me'];?>
+      </div>
+
 </div>
 <script src="<?php echo $dirlocation;?>c_app/views/js/jquery.js"></script>
     <script src="<?php echo $dirlocation;?>c_app/views/js/angular/angular.js"></script>

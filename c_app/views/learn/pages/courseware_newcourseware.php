@@ -1,6 +1,6 @@
-<!--
+
 <script type="text/javascript" src="http://www.html.am/html-editors/ckeditor/ckeditor_4.4.1_standard/ckeditor.js"></script> 
- -->
+ 
 <div class="row" style="padding:0;" ng-controller="DashboardCtrl">
 <div class="panel panel-default">
 <!-- /.panel-heading -->
@@ -104,18 +104,29 @@ $explode=end(explode('.',strtolower($data['library']['library'][0]['path'])));
 
 
 
-<label>Courseware Description</label>     
+<label style="font-size:18px">Courseware Description</label>     
 <textarea id="editor1" class="ckeditor form-control" name="courseware_description" placeholder="Description about this course" rows="5" required="required"><?php if(isset($_GET['edit'])){ echo $data['library']['library'][0]['course_description'];}else{echo $_POST['courseware_description'];}?>
 
 </textarea>   
 
 
-<label>Courseware Outline</label>     
+<label style="font-size:18px">Courseware Outline</label>     
 <textarea id="editor1" class="ckeditor form-control" name="courseware_outline" placeholder="Course outline" rows="5" required="required"><?php if(isset($_GET['edit'])){ echo $data['library']['library'][0]['courseware_outline'];}else{echo $_POST['courseware_outline'];}?>
 
 </textarea>   
            
-           
+<div class="col-lg-6">
+    
+<h3> <input type="checkbox" value="1" checked='checked' ng-model='freecourseware' name="freecourseware" class="pull-left" style="margin-right:10px">  This Course is Not Free </h3> 
+
+    
+<div class="input-group" ng-show="freecourseware=='1'">
+  <span class="input-group-addon" id="basic-addon1">Enter Course Fee  <b>&#x20A6;</b></span>
+  <input type="number" class="form-control" name="course_fee" placeholder="0.0000" aria-describedby="basic-addon1">
+</div>
+    
+ 
+</div>           
 <input type="submit" value="Save Courseware" class="btn btn-lg btn-primary pull-right" style="margin-top:10px" />
 
 

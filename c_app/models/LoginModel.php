@@ -44,11 +44,22 @@ if ($login2['pwrd'] == $password){
 	if($_POST['login_type']=='lecturer'){
 	$_SESSION['accessLogin']=array('full_name'=>$login2['full_name'],'phone_number'=>$login2['phone_number'],'email'=>$login2['email'],'state'=>'1','user_id'=>$login2['rand'],'account_type'=>'lecturer','register_stage'=>$login2['register_stage'],'avater'=>$login2['photo']);
 	
+    if($_POST['return_to']!=''){
+     header('Location:http://'.$_SERVER['HTTP_HOST'].$_POST['return_to']);   
+    } else{   
 	header('Location: learn/feeds');
+    }
+        
 	}elseif($_POST['login_type']=='student'){
 		
 	$_SESSION['accessLogin']=array('full_name'=>$login2['full_name'],'phone_number'=>$login2['phone_number'],'email'=>$login2['email'],'user_id'=>$login2['rand'],'reg_number'=>$login2['reg_number'],'state'=>'1','account_type'=>'student','register_stage'=>$login2['register_stage'],'avater'=>$login2['photo']);
-	header('Location: learn/feeds');	
+        
+    if($_POST['return_to']!=''){
+     header('Location:http://'.$_SERVER['HTTP_HOST'].$_POST['return_to']);   
+    }else{    
+	header('Location: learn/feeds');
+    }
+        
 	}elseif($_POST['login_type']=='contentprovider'){
 		
 	$_SESSION['accessLogin']=array('full_name'=>$login2['full_name'],'phone_number'=>$login2['phone_number'],'email'=>$login2['email'],'user_id'=>$login2['rand'],'state'=>'1','account_type'=>'contentprovider','register_stage'=>$login2['register_stage'],'avater'=>$login2['photo'],'about_me'=>$login2['about_me'],'website'=>$login2['website']);

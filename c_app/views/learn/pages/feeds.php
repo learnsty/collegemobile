@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="col-lg-12" ng-controller="DashboardCtrl">
                 <div class="wrapper wrapper-content">
                         <div class="row">
@@ -746,6 +745,3 @@ If the owner is not the creator of this classroom. That is the only condition in
                     </div>
                 </div>
             </div>
- 
-
->>>>>>> da22c447927d5d9c6c9eeb07de7da12654e27853

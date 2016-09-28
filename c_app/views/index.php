@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!-- saved from url=(0046)http://chimpgroup.com/themeforest/smart-study/ -->
 <html lang="en" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><script id="tinyhippos-injected">if (window.top.ripple) { window.top.ripple("bootstrap").inject(window, document); }</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -107,23 +108,27 @@
 				}
 					?>
 					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="margin:0">
+                        <a href="<?php echo $dirlocation.$grab['url'];?>">
 						<div class="cs-courses courses-grid" style="box-shadow:1px 1px 1px #e8e8e8">
 							<div class="cs-media" style="max-height:100px;overflow:hidden">
-								<figure><a href="#"><img src="<?php echo $dirlocation;?>c_app/views/<?php echo $grab['banner'];?>"  alt=""></a></figure>
+								<figure><img src="<?php echo $dirlocation;?>c_app/views/<?php echo $grab['banner'];?>"  alt=""></a></figure>
 							</div>
-							<div class="cs-text">
-								<div class="cs-post-title">
-								  <h5><?php echo substr($grab['course_title'],0,15).'...';?></h5>
+							<div class="" style="padding-left:5px;">
+								<div class="">
+                                    <a href="<?php echo $dirlocation.$grab['url'];?>">
+								  <h5><?php echo substr($grab['course_title'],0,18).'...';?></h5>
+                                    </a>
 								</div>
 								
-								<div class="cs-post-meta">
-								  <span>By
-									<a href="#" class="cs-color"><?php echo $getownerdetails[0]['full_name'];?></a>
+								<div class="">
+								  <span style="font-size:11px">By
+									<a href="#" class="cs-color" ><?php echo $getownerdetails[0]['full_name'];?></a>
 									
 								  </span>
 								</div>
 							</div>
 						</div>
+                      </a>
 					</div>
                     <?php }?>
 					
@@ -133,113 +138,11 @@
 			  </div>
 			</div>
 		</div>
-		<div class="page-section">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-						<div class="widget cs-text-widget">
-						<div class="cs-text" style="background:#FFF;padding:0;">
-							<h2>About Us</h2>
-							<p>CollegeMobile is a technology service that helps University Students easily achieve academic excellence. It brings both the student and lecturer together on a platform that truly enables deep learning, collaboration and sharing of knowledge.</p>
-							
-						</div>
-					</div>
-					</div>
-					<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12" style="padding-top:15px;font-family:sans-serif">
-						<div class="row">
-							<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-								<div class="cs-event left">
-									<div class="cs-media">
-										<span><strong>Our Process</strong></span>
-									</div>
-									<div class="cs-text">
-										
-										<div style="margin-bottom:10px;text-align:;">Our product understands the unique learning preferences of the students and then adapts the technology to suit such preferences.</div>
-										
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-								<div class="cs-event left">
-									<div class="cs-media">
-										<span><strong>Our Approach</strong></span>
-									</div>
-									<div class="cs-text">
-										<div style="margin-bottom:10px;">Our approach is to build a platform that connects all the students in the world for knowledge sharing and collaboration.</div>
-										
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-								<div class="cs-event left">
-									<div class="cs-media">
-										<span><strong>Our Vision</strong></span>
-									</div>
-									<div class="cs-text">
-										<div style="margin-bottom:10px;">Our Vision is for CollegeMobile to be the channel through which every Student achieves Academic Excellence</div>
-										
-									</div>
-								</div>
-							</div>
-                            
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-								<div class="cs-event left">
-									<div class="cs-media">
-										<span><strong>Our Mission</strong></span>
-									</div>
-									<div class="cs-text">
-										<div style="margin-bottom:10px;">To positively transform the Way Students of Higher Institutions go to school.</div>
-										
-									</div>
-								</div>
-							</div>
-                            
-                            
-                		</div>
-					</div>
-				</div>
-			</div>
-		</div>  
+ 
 		
 		
 		
-		<div class="page-section" style="background-color:#f9fafa; padding:50px 0;display:none">
-            <div class="container">
-                <div class="row">
-                    <div class="section-fullwidtht col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <ul class="row cs-counter-holder">
-                            <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <div class="cs-counter simple center">
-                                    <div class="cs-text">
-                                        <strong class="counter cs-color">87,411</strong>
-                                        <span>Colleges across campus</span>
-                                        <p>Ac tristique fermentum dui enim non nisi integer viverra consectetur vulputate ullamcorper aenean lorem.</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <div class="cs-counter simple center">
-                                    <div class="cs-text">
-                                        <strong class="counter cs-color">87,411</strong>
-                                        <span>Colleges across campus</span>
-                                        <p>Ac tristique fermentum dui enim non nisi integer viverra consectetur vulputate ullamcorper aenean lorem.</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <div class="cs-counter simple center">
-                                    <div class="cs-text">
-                                        <strong class="counter cs-color">25,729</strong>
-                                        <span>alumni and growing</span>
-                                        <p>Ac tristique fermentum dui enim non nisi integer viverra consectetur vulputate ullamcorper aenean lorem.</p>
-                                    </div>
-                                </div>
-                            </li>
-                       </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 		
 		<div class="page-section" style="margin-bottom:40px;">
 			<div class="container">
@@ -286,7 +189,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="widget widget-text">
-                          <div class="widget-section-title"><h6 style="color:#fff !important">Contact us</h6></div>
+                          <div class="widget-section-title"><h6 style="color:#fff !important">Connect with us</h6></div>
                             <ul>
                                 <li>
                                 	<i class="icon-light-bulb "></i>
@@ -299,38 +202,23 @@
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="widget widget-categores">
-                            <div class="widget-section-title"><h6 style="color:#fff !important">Phone Numbers</h6></div>
+                            <div class="widget-section-title"><h6 style="color:#fff !important">Phone Number</h6></div>
                             <ul>
-                                <li>Phone 1: 234 80678 33717,<br>
-                                  Phone 2: 234 80995 67672,<br>
-                                Phone 3: 234 70388 42080</li>
+                                <li>Phone 1: 234 80678 33717
+                                  </li>
                             </ul>	
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="widget widget-useful-links">
-                            <div class="widget-section-title"><h6 style="color:#fff !important">Emails</h6></div>
+                            <div class="widget-section-title"><h6 style="color:#fff !important">Email</h6></div>
                             <ul>
                                 <li>info@collegemobile.net</li>
                             </ul>	
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="widget widget-news-letter">
-                            <div class="widget-section-title"><h6 style="color:#fff !important">NewsLetter</h6></div>
-                            <p>Subcribe to out newsletter.</p>
-							<div class="cs-form">
-                            	<form>
-                                	<div class="input-holder">
-                                    	<i class="icon-envelope3"></i>
-                                    	<input type="email" placeholder="example@email.com">
-                                        <label>
-                                    		<input type="submit" value="Subscribe" class="btn btn-info">
-                                        </label>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                        <!---CONTENT NEEDS TO GO IN HERE--->
                     </div>
                 </div>
             </div>

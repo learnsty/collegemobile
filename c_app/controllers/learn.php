@@ -14,7 +14,8 @@ class learn extends Controller{
 		
 		
 	if(!isset($_SESSION['accessLogin'])){
-	die(header('Location:login'));
+    
+	die(header('Location:'.$dirlocation.'login?return_to='.$_SERVER['REQUEST_URI']));
 	}
 
 
@@ -78,6 +79,7 @@ class learn extends Controller{
 	$allcatalogue=$model->allcatalogue();
 	$allskillset=$model->skillset();
 	$like=$dashboard->like();
+    $enrol=$dashboard->enrol();   
 	if(isset($_GET['SearchKeyword'])){
 	$search=$dashboard->search();	
 	}

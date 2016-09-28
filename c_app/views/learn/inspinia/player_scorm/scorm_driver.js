@@ -2,7 +2,7 @@
  * Copyright (c) 2016 CollegeMobile.
  */
  
- (function(w_n, d){
+ ;(function(w_n, d){
 	   
 	        var 
 			    $win,
@@ -15,7 +15,7 @@
 				$defered,
 				$sendDefered,
 				$getDefered
-				transferSCORMProfile = function(v, xdomain){
+				XDR = function(v, xdomain){
 				    // if IE and {xdomain} is true, then we make use of XDR
 				      E.emit("callcomms->ajax", v);
 				};
@@ -145,11 +145,14 @@
 			 
          var T = box.tools,
 		     $ = box.jQuery,
+             w = w_n.innerWidth || document.body.clientWidth,
+             h = w_n.innerHeight || document.body.clientHeight,
 			 createPopUp = function(uri, config){
 			    // setup config params
 				config = (!!config && String(config.constructor).indexOf('[Object')>-1)? T.json_stringify(config) : '{"cross_domain":false,"tincan_mode":false}';
                  // open a pop-up window...
-			   $win = T.open_window(uri, config, ['960','710']);
+                 
+			   $win = T.open_window(uri, config, [(w - (w/4)),(h - (h/4))]);
                w_n.$cdvjs.LMS.isExtensionStarted = true;
 			   
 			   E.on("send_cmi", function(d){
@@ -163,59 +166,62 @@
 			           $sendDefered = new w_n.$cdvjs.Futures();
 			           // Use this in prod: ---> 
 					   //$accessControl.setMessage("appdatacomms", {ajaxtype:type,payload:data,context:$smallDefered});
-					   setTimeout(function(){
-					       x_data = data; // mimick saving 'data' to LMS database (MySQL) via AJAX
-						   /*
-						     transferSCORMProfile({
-							        url:data.target.url
-							 });
-						   */
+					   
+						  
+						     $.ajax({
+							    url:data.target_url,
+                                method:(type.replace(/^CMI_/, '')),
+data:T.json_stringify({"cmi_activity":data.actvity,"cmi_learner":data.student,"adl_course":data.course,"cmi_json":data.json}),
+                                success:function(payload, text, xhr){
+                                       var datastr;
+                                       console.log("Success... " + text);
+                                       datastr = T.json_stringify(payload);
+                                       console.log("json data recieved from SCORM {CMI_GET} route: "+datastr);
+                                       console.log("Success on SCORM {CMI_GET} request route to: "+data.target_url);
+                                },
+                                error:function(xhr, text){
+                                       console.log("Server Error on SCORM {CMI_GET} request due to '"+text+"'");
+                                       console.log("Failure on SCORM {CMI_GET} request route to: "+data.target_url);
+                                }
+							 }).always(function(payload){
+						   
 					       $sendDefered.resolve({
-                                   "status":100, // a status of '100' is a successful CMI_POST, a status of '300' is an unsuccessful CMI_POST -- for test purposes we will always pass the request!
+                                   "status":payload.status, // a status of '100' is a successful CMI_POST, a status of '300' is an unsuccessful CMI_POST
                                    "type":type
                            });
-					   }, 5000);
+                       });
+                                                  
 					   return $sendDefered;
 			   });
 			   
 			   // #### DATABSE COMMS - GET CMI DATA FROM DB ####
 			   E.on("wait:get_from_lms", function(data, type){
+                                                  
 			          $getDefered = new w_n.$cdvjs.Futures();
 					  // Use this in prod: ---> $accessControl.setMessage("appdatacomms", {ajaxtype:type,payload:data,context:$smallDefered});
-					  setTimeout(function(){
-					       var get_data = (!x_data)? null : x_data ; // mimick getting 'data' from LMS database (MySQL) via AJAX
-					       /*
-						   transferSCORMProfile({
-						                url:data.target_url,
-										method:(type.replace(/^CMI_/, '')),
-										progress_text:null,
-										progress_bar:null,
-										progress_promise:null,
-										btntext:null,
-						                callback:function(payload, text, xhr){
-				  	    		               var datastr;
-				  	    	                   console.log("Success... Logged In");
-								               datastr = T.json_stringify(payload);
-								               console.log("json data recieved from SCORM {CMI_GET} route: "+datastr);	
-                                        },
-				  	    	            error:function(xhr, text){
-							                   console.log("Server Error on SCORM {CMI_GET} request due to '"+text+"'");
-				  	    	            },
-				  	    	            debug:{
-				  	        	              success:function(payload, text){
-				  	    	                          console.log("Success on SCORM {CMI_GET} request route to: "+data.target_url);	
-				  	         	              },
-				  	    	                  error:function(text){
-				  	    	                          console.log("Failure on SCORM {CMI_GET} request route to: "+data.target_url);	
-				  	    	                  }
-				  	    	            },
-				  	    	            always:function(payload, text, xhr){
+					       
+						   $.ajax({
+						        url:data.target_url,
+								method:(type.replace(/^CMI_/, '')),
+								data:T.json_stringify({"cmi_activity":data.actvity,"cmi_learner":data.student,"adl_course":data.course}),
+                                success:function(payload, text, xhr){
+                                       var datastr;
+                                       console.log("Success... " + text);
+                                       datastr = T.json_stringify(payload);
+                                       console.log("json data recieved from SCORM {CMI_GET} route: "+datastr);
+                                       console.log("Success on SCORM {CMI_GET} request route to: "+data.target_url);
+                                },
+                                error:function(xhr, text){
+                                       console.log("Server Error on SCORM {CMI_GET} request due to '"+text+"'");
+                                       console.log("Failure on SCORM {CMI_GET} request route to: "+data.target_url);
+                                }
+                            }).always(function(payload){
 							                  
-				  	                          console.log("Request has returned from SCORM {CMI_GET} Yeeeeeeeeppppe! OR Damnnnnnn It! ---> "+text);
+				  	                          console.log("Request has returned from SCORM {CMI_GET}  -----> always callback "+T.json_stringify(payload));
 							   
 								              // Pass OR Fail
 											if(type === 'CMI_GET'){  
-							                  switch(data.status){	
+							                  switch(payload.status){	
 								                  case 100:
                                                      ; // success
  												  break;
@@ -224,37 +230,19 @@
                                                   break;												  
 				  	    	                  }
 											}  
-							 
-				  	    	            },
-				  	    	            progress_complete:function(txtb, num, textStatus, promise){
-				  	    		            // No code here...
-				  	    	            },
-						            	begin:function(xhr){
-								               xhr.setRequestHeader("X-Authorize-Key", "");
-								               xhr.setRequestHeader("X-CMI-Token", data.token); 
-							                   xhr.setRequestHeader("X-Alt-Referer", refurl); // server should check that strpos($referer, "synergixe") !== FALSE
-							            },
-							            data:T.json_stringify({"cmi_activity":data.actvity,"cmi_learner":data.student,"adl_course":""}),
-							            args:{cache:false,servicetype:""},
-							            no_spinner:true,
-							            r_contents: {
-							               handle:$getDefered
-							            }
-						        });
-						   */
-						   $getDefered.resolve({
-                                         "data":get_data,
-										 "statedata":{},
-                                         "type":type,
-										 "status":100 // a status '100' is a successful CMI_GET, a status '300' is an unsuccessful CMI_GET --
-                           });
-					   }, 3000);
+							  
+                                           $getDefered.resolve({
+                                                 "data":payload,
+                                                 "statedata":{},
+                                                 "type":type,
+                                                 "status":payload.status // a status '100' is a successful CMI_GET, a status '300' is an unsuccessful 
+                                          });
+				  	    	});
+                                                  
 					   return $getDefered;
 			   });
                
-			 
            },
-
            requestCMI = function(obj, callback){
                   
                   var flag = obj["cmi_control_flag"];
@@ -321,6 +309,6 @@
 		   };
 	});	   
 
-        $w_n.$cdvjs.Application.activateModule('scormunit');
+    w_n.$cdvjs.Application.activateModule('scormunit');
 		  
 }(this, this.document));
