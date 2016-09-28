@@ -35,8 +35,6 @@
     <link href="<?php echo $dirlocation;?>c_app/views/learn/inspinia/style.css" rel="stylesheet">
     <link href="<?php echo $dirlocation;?>c_app/views/css/font-awesome.css" rel="stylesheet" />
 	
-	<script src="<?php echo $dirlocation;?>c_app/views/learn/scorm/js/lib/cdv_js.js" type="text/javascript"></script>
-	<script src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/player_scorm/scorm_driver.js" type="text/javascript"></script>
 
     
     

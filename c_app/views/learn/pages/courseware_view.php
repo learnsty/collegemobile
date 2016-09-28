@@ -212,3 +212,7 @@ $crud=new Crud;
 </div>
 
 
+	<script src="<?php echo $dirlocation;?>c_app/views/learn/scorm/js/lib/cdv_js.js" type="text/javascript"></script>
+	<script src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/player_scorm/scorm_driver.js" type="text/javascript"></script>
+
+

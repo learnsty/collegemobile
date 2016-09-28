@@ -675,7 +675,6 @@ If the owner is not the creator of this classroom. That is the only condition in
                             <div class="ibox float-e-margins">
                             <!--<div class="ibox-title" style="height:400px">
                             <!-- <h5>Projects Column</h5> -->
-							<a href="#" class="btn btn-success" onclick="javascript:scormLauncher('');">Launch CourseWare</a>
                             <!--
 
                                    
