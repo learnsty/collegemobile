@@ -34,20 +34,22 @@
   <link rel="stylesheet" href="./css/tree.css" type="text/css" media="screen, projection, handheld" />
   <link rel="stylesheet" href="./css/mobile-sticker.css" media="handheld" />
   <style type="text/css">
-        .btn-gradient:hover,
+    .btn-gradient:hover,
 		.btn-default:hover{
             background-color:#f5f5f5;
         }
   </style>
+
   <script type="text/javascript">
       (function(){
-            var w = window.innerWidth || document.body.clientWidth;
-            var h = window.innerHeight || document.body.clientHeight;
+            var T = $cdvjs.Application.command("tools");
+            var w = window.innerWidth /*|| document.body.clientWidth;*/
+            var h = window.innerHeight /*|| document.body.clientHeight;*/
           
-            var ew = w - 235;
+            var ew = w - 237;
             var eh = h - 80;
-            add_stylesheet("width:"+ew+"px;", "html #viewport");
-            add_stylesheet("height:"+eh+"px;", "html #shade";
+            T.add_stylesheet("width:"+ew+"px;", "html #viewport");
+            T.add_stylesheet("height:"+eh+"px;", "html #shade";
       }());
   </script>
   <script src="./js/lib/cdv_js.js" type="text/javascript"></script>

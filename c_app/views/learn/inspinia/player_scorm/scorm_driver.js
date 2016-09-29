@@ -6,7 +6,6 @@
 	   
 	        var 
 			    $win,
-                x_data = null,	
                 E = w_n.$cdvjs.Application.command("emitter"),
 				Queue = w_n.$cdvjs.Application.getDataStruct("Queue"),
 	            Ck = w_n.$cdvjs.Application.command("cookiestore"),
@@ -145,14 +144,24 @@
 			 
          var T = box.tools,
 		     $ = box.jQuery,
-             w = w_n.innerWidth || document.body.clientWidth,
-             h = w_n.innerHeight || document.body.clientHeight,
-			 createPopUp = function(uri, config){
+             w = w_n.screen.width,
+             h = w_n.screen.height,
+
+			 scormPopUp = function(uri, config){
 			    // setup config params
-				config = (!!config && String(config.constructor).indexOf('[Object')>-1)? T.json_stringify(config) : '{"cross_domain":false,"tincan_mode":false}';
+				config = (!!config && String(config.constructor).indexOf('[Object')>-1)? T.json_stringify(config) : '{"cross_domain":false}';
                  // open a pop-up window...
                  
-			   $win = T.open_window(uri, config, [(w - (w/4)),(h - (h/4))]);
+               if(w <= 480){ // trying to detect mobile
+                   config = "_blank";
+               }  
+                 
+			   $win = T.open_window(uri, config, [(w - Math.floor(w/4)),(h - Math.floor(h/4))]);
+			   if(typeof w_n.windowsOpened !== "number"){
+                  w_n.windowsOpened = 1
+               }else{
+                  ++w_n.windowsOpened;
+               }
                w_n.$cdvjs.LMS.isExtensionStarted = true;
 			   
 			   E.on("send_cmi", function(d){
@@ -176,27 +185,40 @@ data:T.json_stringify({"cmi_activity":data.actvity,"cmi_learner":data.student,"a
                                        var datastr;
                                        console.log("Success... " + text);
                                        datastr = T.json_stringify(payload);
-                                       console.log("json data recieved from SCORM {CMI_GET} route: "+datastr);
-                                       console.log("Success on SCORM {CMI_GET} request route to: "+data.target_url);
+                                       console.log("json data recieved from SCORM {CMI_POST} route: "+datastr);
+                                       console.log("Success on SCORM {CMI_POST} request route to: "+data.target_url);
                                 },
                                 error:function(xhr, text){
-                                       console.log("Server Error on SCORM {CMI_GET} request due to '"+text+"'");
-                                       console.log("Failure on SCORM {CMI_GET} request route to: "+data.target_url);
+                                       console.log("Server Error on SCORM {CMI_POST} request due to '"+text+"'");
+                                       console.log("Failure on SCORM {CMI_POST} request route to: "+data.target_url);
                                 }
 							 }).always(function(payload){
+
+							 	       console.log("Request has returned from SCORM {CMI_POST}  -----> always callback "+T.json_stringify(payload));
+								              
+										if(type === 'CMI_POST'){  
+						                  switch(_status){	
+							                  case 100:
+                                                 ; // success
+												  break;
+                                              case 300:
+                                                 ; // failure
+                                              break;												  
+			  	    	                  }
+									    }  
 						   
-					       $sendDefered.resolve({
-                                   "status":payload.status, // a status of '100' is a successful CMI_POST, a status of '300' is an unsuccessful CMI_POST
-                                   "type":type
-                           });
-                       });
+								       $sendDefered.resolve({
+			                                   "status":payload.status, // a status of '100' is a successful CMI_POST, a status of '300' is an unsuccessful CMI_POST
+			                                   "type":type
+			                           });
+                             });
                                                   
-					   return $sendDefered;
+					         return $sendDefered;
 			   });
 			   
 			   // #### DATABSE COMMS - GET CMI DATA FROM DB ####
 			   E.on("wait:get_from_lms", function(data, type){
-                                                  
+                      var _status = 0;                            
 			          $getDefered = new w_n.$cdvjs.Futures();
 					  // Use this in prod: ---> $accessControl.setMessage("appdatacomms", {ajaxtype:type,payload:data,context:$smallDefered});
 					       
@@ -210,18 +232,20 @@ data:T.json_stringify({"cmi_activity":data.actvity,"cmi_learner":data.student,"a
                                        datastr = T.json_stringify(payload);
                                        console.log("json data recieved from SCORM {CMI_GET} route: "+datastr);
                                        console.log("Success on SCORM {CMI_GET} request route to: "+data.target_url);
+                                       _status = 100;
                                 },
                                 error:function(xhr, text){
                                        console.log("Server Error on SCORM {CMI_GET} request due to '"+text+"'");
                                        console.log("Failure on SCORM {CMI_GET} request route to: "+data.target_url);
+                                       _status = 300;
                                 }
                             }).always(function(payload){
 							                  
-				  	                          console.log("Request has returned from SCORM {CMI_GET}  -----> always callback "+T.json_stringify(payload));
+				  	                        console.log("Request has returned from SCORM {CMI_GET}  -----> always callback "+T.json_stringify(payload));
 							   
-								              // Pass OR Fail
+								              
 											if(type === 'CMI_GET'){  
-							                  switch(payload.status){	
+							                  switch(_status){	
 								                  case 100:
                                                      ; // success
  												  break;
@@ -235,12 +259,12 @@ data:T.json_stringify({"cmi_activity":data.actvity,"cmi_learner":data.student,"a
                                                  "data":payload,
                                                  "statedata":{},
                                                  "type":type,
-                                                 "status":payload.status // a status '100' is a successful CMI_GET, a status '300' is an unsuccessful 
+                                                 "status":_status // a status '100' is a successful CMI_GET, a status '300' is an unsuccessful 
                                           });
 				  	    	});
                                                   
-					   return $getDefered;
-			   });
+					        return $getDefered;
+			   }); 
                
            },
            requestCMI = function(obj, callback){
@@ -253,11 +277,11 @@ data:T.json_stringify({"cmi_activity":data.actvity,"cmi_learner":data.student,"a
 
                   if(type === "CMI_GET"){ 
 				       data.token = token;
-					   console.log("Fetching data from fake persistent data (MySQL) store at "+data.target_url+" for "+data.student+" who has activated activity:"+data.activity+"!!");
+					   console.log("Fetching data from persistent data store (MySQL) at "+data.target_url+" for "+data.student+" who has activated activity: "+data.activity+"!!");
 					   w_n.$cdvjs.LMS.provideSCORMData(data, type, callback);
                    }else if(type === "CMI_POST"){
-					   console.log("LMS recieving commit call...")
-					   console.log("SSR -> student report details: \r\n Name:"+data["cmi.core.student_name"]+", \r\n Badge:"+data["cmi.core.credit"]+", \r\n Session Time:"+data["cmi.core.session_time"]+", \r\n Lesson Status:"+data["cmi.core.lesson_status"]+"!");
+					   console.log("Sending data to persistent data store (MySQL) at "+data.target_url+" for "+data.student+" who has activated activity: "+data.activity+"!!");
+					   console.log("SSR -> Student Expreience Report: \r\n Badge:"+data["cmi.core.credit"]+", \r\n Session Time:"+data["cmi.core.session_time"]+", \r\n Lesson Status:"+data["cmi.core.lesson_status"]+"!");
                        w_n.$cdvjs.LMS.recieveSCORMCommit(data, type, callback);
 				   }else if(type === "STATE_POST"){
 						     ;
@@ -268,6 +292,7 @@ data:T.json_stringify({"cmi_activity":data.actvity,"cmi_learner":data.student,"a
 		   
 		   ($cdvjs.Application.command("channel")).recieve_message(function(json, loc){
 		        if(!$win || (loc.indexOf('/scorm') == -1)){
+		        	console.log("SCORM: Here we areeeeeeeeeeeeeeeeeeeeeeee!");
 				    return;
 				}
                 console.log("SynLMS is recieving request from SSR: "+json);
@@ -287,7 +312,7 @@ data:T.json_stringify({"cmi_activity":data.actvity,"cmi_learner":data.student,"a
   
            w_n.scormLauncher = function(url){
 
-		       createPopUp(url);
+		       scormPopUp(url);
 
            };
 		   
@@ -309,6 +334,7 @@ data:T.json_stringify({"cmi_activity":data.actvity,"cmi_learner":data.student,"a
 		   };
 	});	   
 
-    w_n.$cdvjs.Application.activateModule('scormunit');
+    $cdvjs.Application.activateModule('scormunit');
+    
 		  
 }(this, this.document));

@@ -2748,9 +2748,74 @@ Futures = function(){
                                                       doc[gETN]("head")[0].appendChild(newSS);
                                                 }
                             },
-                            get_class_nodes: function(){
-							
-							},
+                            add_stylesheet:function(ruleset, selector){
+                                  var sheet = (function(){
+                                       var style = doc[cE]('style');
+                                       // Webkit hack :)
+                                       style.appendChild(doc.createTextNode(""));
+                                       doc[gETN] ("head")[0].appendChild(style);
+                                       return style.sheet;
+                                  }());
+                                  if(!sheet){
+                                     return;
+                                  }
+                                  if('insertRule' in sheet){
+                                     sheet.insertRule(selector + " {" + ruleset + "} ");
+                                  }else if('addRule' in sheet){   
+                                     sheet.addRule(selector, ruleset);
+                                  }   
+                            },
+                            get_class_nodes: function(selector, parent){
+                                    parent = parent || doc;
+
+                                    var elements;
+
+                                      if (doc.createStyleSheet) {
+                                         if (doc.styleSheets.length) { // IE requires you check against the length as it bugs out otherwise
+                                                style = doc.styleSheets[0];
+                                         } else {
+                                                style = doc.createStyleSheet();
+                                         }
+
+                                         // split selector on comma because IE7 doesn't support comma delimited selectors
+                                         var selectors = selector.split(/\s*,\s*/),
+                                                indexes = [],
+                                                index;
+                                         for (i = 0; i < selectors.length; i++) {
+                                                // create custom (random) style rule and add it to elements
+                                                index = style.rules.length;
+                                                indexes.push(index);
+                                                style.addRule(selectors[i], 'aybabtu:pa', index);
+                                         }
+
+                                         // get all child nodes (document object has bugs with childNodes)
+                                         if (parent === doc) {
+                                                nodes = parent.all;
+                                         } else {
+                                                nodes = parent.childNodes;
+                                         }
+
+                                         elements = [];
+
+                                         // cycle through all elements until we find the ones with our custom style rule
+                                         for (i = 0, length = nodes.length; i < length; i++) {
+                                                node = nodes[i];
+                                                if (node.nodeType === 1 && node.currentStyle.aybabtu === 'pa') {
+                                                       elements.push(node);
+                                                }
+                                         }
+
+                                         // remove the custom style rules we added (go backwards through loop)
+                                         for (i = indexes.length - 1; i >= 0; i--) {
+                                                style.removeRule(indexes[i]);
+                                         }
+                                      }else{
+                                            if('getElementsByClassName' in parent){
+                                                elements = [].slice.call(parent.getElementsByClassName(selector));
+                                            }
+                                      } 
+                                  return elements;      
+            },
 							get_name_nodes:function(){
 							
 							},
