@@ -17,7 +17,9 @@ $getownerdetails=$crud->dbselect('lecturer','*',"rand='".$data['library']['libra
    /////// CHECK IF USER HAVE ENROLLED FOR THIS COURSEWARE //////
  $checkenrol=$crud->dbselect('enrol','*',"courseware_id='".$data['library']['library'][0]['courseware_id']."' AND staff_id='".$_SESSION['accessLogin']['user_id']."'","");
 
-
+///////// CHECK THE EXTENTION OF FILE////
+$extension = strtolower(end(explode('.',$data['library']['library'][0]['path'])));
+  echo $extension;             
 
 ?>
 
@@ -107,9 +109,20 @@ $getownerdetails=$crud->dbselect('lecturer','*',"rand='".$data['library']['libra
 <?php }?>    
     <?php }else{?>
     
-  <a href="javascript:void(0);" onclick="javascript:scormLauncher (<?php echo $dirlocation . 'c_app/views/learn/scorm/'; ?> + 'runtime.php?debug=on&studentId=<?php echo $_SESSION['accessLogin']['user_id'];?>&courseId=<?php echo $data['library']['library'][0]['courseware_id'];?>&studentName=<?php echo str_replace(' ', ',',$_SESSION['accessLogin']['full_name']);?>&courseRootDir=<?php echo $dirlocation;?>c_app/views/courseware/')" class="btn btn-success" style="margin-top:10px">Goto Courseware</a>
+  <?php if($extension==''){?>
+      <a href="javascript:void(0);" onclick="javascript:scormLauncher('<?php echo $dirlocation . 'c_app/views/learn/scorm/'; ?>' + 'runtime.php?debug=on&studentId=<?php echo $_SESSION['accessLogin']['user_id'];?>&courseId=<?php echo $data['library']['library'][0]['courseware_id'];?>&studentName=<?php echo str_replace(' ', ',',$_SESSION['accessLogin']['full_name']);?>&courseRootDir=<?php echo $dirlocation;?>c_app/views/courseware/')" class="btn btn-success" style="margin-top:10px">Goto Courseware</a>
+    <?php }elseif($extension=='pdf'){?> 
+    <a href="javascript:void(0);" class="btn btn-success" onclick="javascript:pdfLauncher('<?php echo $dirlocation . 'c_app/view/learn/pdfviewer/'; ?>viewer.php?open=<?php echo $dirlocation . 'c_app/view/'.$data['library']['library'][0]['path'];?>&studentId=<?php echo $_SESSION['accessLogin']['full_name'];?>');">Goto Courseware</a>
+    
 
-    /* <a href="javascript:void(0);" class="btn btn-default" onclick="javascript:pdfLauncher('<?php echo $dirlocation . 'c_app/view/learn/pdfviewer/'; ?>viewer.php?open=<?php $dirlocation . 'c_app/view/courseware/8892342.pdf'; ?>&studentId=xxxxxxx');"></a> */
+    
+    
+    <!---- if THE EXTENTION IS NOT A PDF AND ITS NOT A VIDEO--->
+    <?php }else{?>
+    
+    <?php }?>
+
+    
    
     
     <?php }?>
@@ -132,8 +145,9 @@ if(in_array($split,$video_array)){?>
 <?php }else{?>
 <div id="example1"></div>
 
+<!--    
 <iframe src="http://docs.google.com/gview?url=<?php echo $dirlocation;?>c_app/views/<?php echo $data['library']['library'][0]['path'];?>" style="width:100%; min-height:400px;" frameborder="0"></iframe>
-
+--->
 <?php }?>
 </div>
 
@@ -194,7 +208,17 @@ $crud=new Crud;
     <h1>Congratulations <?php echo $_SESSION['accessLogin']['full_name'];?>!</h1>
     You have successfully enrolled For This Course
 <br/>
-      <a href="javascript:void(0);" onclick="javascript:scormLauncher('<?php echo $dirlocation . 'c_app/views/learn/scorm/'; ?>' + 'runtime.php?debug=on&studentId=<?php echo $_SESSION['accessLogin']['user_id'];?>&courseId=<?php echo $data['library']['library'][0]['courseware_id'];?>&studentName=<?php echo str_replace(' ', ',',$_SESSION['accessLogin']['full_name']);?>&courseRootDir=<?php echo $dirlocation;?>c_app/views/courseware/')" class="btn btn-success" style="margin-top:10px">Goto Courseware</a>
+    
+    <?php if($extension==''){?>
+      <a href="javascript:void(0);" onclick="javascript:scormLauncher('<?php echo $dirlocation . 'c_app/views/learn/scorm/'; ?>' + 'runtime.php?debug=on&studentId=<?php echo $_SESSION['accessLogin']['user_id'];?>&courseId=<?php echo $data['library']['library'][0]['courseware_id'];?>&studentName=<?php echo str_replace(' ', ',',$_SESSION['accessLogin']['full_name']);?>&courseRootDir=<?php echo $dirlocation;?>c_app/views/courseware/'.<?php echo $data['library']['library'][0]['path'];?>')" class="btn btn-success" style="margin-top:10px">Goto Courseware</a>
+    <?php }elseif($extension=='pdf'){?>
+    
+    <a href="javascript:void(0);" class="btn btn-success" onclick="javascript:pdfLauncher('<?php echo $dirlocation . 'c_app/view/learn/pdfviewer/'; ?>viewer.php?open=<?php echo $dirlocation . 'c_app/view/'.$data['library']['library'][0]['path'];?>&studentId=<?php echo $_SESSION['accessLogin']['full_name'];?>');">Goto Coursewaressss2</a>
+    
+    <!---- if THE EXTENTION IS NOT A PDF AND ITS NOT A VIDEO--->
+    <?php }else{?>
+    
+    <?php }?>
     </div>
         
     </div>
@@ -215,6 +239,7 @@ $crud=new Crud;
 
 
 	<script src="<?php echo $dirlocation;?>c_app/views/learn/scorm/js/lib/cdv_js.js" type="text/javascript"></script>
+    <script src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/player_pdf/pdf_driver.js" type="text/javascript"></script>
 	<script src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/player_scorm/scorm_driver.js" type="text/javascript"></script>
 
 

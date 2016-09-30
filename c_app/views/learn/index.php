@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -39,7 +40,7 @@
         </div>
                 
         <div class="row">
-            <?php //include('pages/'.$data['content'][1].'.php');?>
+            <?php include('pages/'.$data['content'][1].'.php');?>
         </div>
 
         </div>
