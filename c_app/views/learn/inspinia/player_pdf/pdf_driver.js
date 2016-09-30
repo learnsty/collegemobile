@@ -2,8 +2,7 @@
  * Copyright (c) 2016 CollegeMobile.
  */
 
- /* <a href="javascript:void(0);" class="btn btn-default" onclick="javascript:pdfLauncher('<?php echo $dirlocation . 'c_app/view/learn/pdfviewer/'; ?>viewer.php?open=<?php $dirlocation . 'c_app/view/courseware/8892342.pdf'; ?>&studentId=xxxxxxx');"></a> */
- 
+
  ;(function(w_n, d){
 
      var $win,

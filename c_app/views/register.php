@@ -73,7 +73,7 @@ exit;
 
             <div class="col-md-4 col-md-offset-4" ng-if="activate == undefined" style="margin-top:50px">
              <h2 style="color:#06C;text-align:center">User Registration</h2>
-             <h4 style="text-align:center">Thousand of people are waiting for you.</h4>	
+             <h4 style="text-align:center">Thousands of people are waiting for you.</h4>	
                 <div class="login-panel panel panel-default">
                    
                       <div class="legend">Register</div>

@@ -1,1 +1,32 @@
 /* */
+
+/* hide font-awesome icons */
+body[aria-view-mode="desktop"] .menu-item > i.fa,
+body[aria-view-mode="desktop"] .menu-item > span.fa-stack{
+	display:none !important;
+}
+
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px){
+
+    /* This {body} selector style is just to increase specificity */
+	body[aria-view-mode="mobile"] .button-place-holder,
+	body[aria-view-mode="mobile"] .menu-item > span.text-face{ 
+        display:none;
+    }
+
+    /* show font-awesome icons */
+    body[aria-view-mode="mobile"] .menuitem > i.fa,
+    body[aria-view-mode="mobile"] .menu-item > span.fa-stack{
+    	display: inline-block;
+    }
+
+    body[aria-view-mode="mobile"] #tab-deck,
+    body[aria-view-mode="mobile"] #toc-menu{
+        display:none;
+    }
+
+    body[aria-view-mode="mobile"] #viewport{
+    	width:100%;
+    }
+
+}

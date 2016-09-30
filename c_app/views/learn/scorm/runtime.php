@@ -29,22 +29,23 @@
 	}());	
   </script>
   
-  <link rel="stylesheet" href="./css/turbor.css" type="text/css" media="screen, projection, handheld" />
-  <link rel="stylesheet" href="./css/interface.css" type="text/css" media="screen, projection, handheld" />
-  <link rel="stylesheet" href="./css/tree.css" type="text/css" media="screen, projection, handheld" />
-  <link rel="stylesheet" href="./css/mobile-sticker.css" media="handheld" />
+  <link rel="stylesheet" href="./css/turbor.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="./css/interface.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="./css/tree.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="./css/mobile-sticker.css" media="screen" />
   <style type="text/css">
     .btn-gradient:hover,
 		.btn-default:hover{
-            background-color:#f5f5f5;
-        }
+         background-color:#f5f5f5;
+     }
   </style>
 
   <script type="text/javascript">
       (function(){
             var T = $cdvjs.Application.command("tools");
-            var w = window.innerWidth /*|| document.body.clientWidth;*/
-            var h = window.innerHeight /*|| document.body.clientHeight;*/
+            var w = window.innerWidth; /*|| document.body.clientWidth;*/
+            var h = window.innerHeight; /*|| document.body.clientHeight;*/
           
             var ew = w - 237;
             var eh = h - 80;
@@ -89,21 +90,21 @@
 				
 					<div id="scorm_1_2" class="navigation pill clear-fix unselectable pill scorm_1_2 navbox" id="navigation" role="navigation"> 
                         <ul id="menu" class="nav-menu pull-left">
-                            <li><a href="javascript:void(0);" id="start" class="menu-item btn first left-half-pill btn-default capital btn-emphasis">Begin Course</a></li>
-                            <li><a href="javascript:void(0);" id="prev" class="menu-item btn btn-default btn-disabled" disabled="disabled">Previous</a></li>
-                            <li><a href="javascript:void(0);" id="next" class="menu-item btn  btn-default btn-disabled" disabled="disabled">Next</a></li>
-                            <li><a href="javascript:void(0);" id="close" class="menu-item btn btn-default btn-disabled" disabled="disabled">Exit Activity</a></li>
+                            <li><a href="javascript:void(0);" id="start" class="menu-item btn first left-half-pill btn-default capital btn-emphasis"><span class="text-face">Begin Course</span><span class="fa-stack fa-2x"><i class="fa fa-play-circle-o" aria-hidden="true"></i><i class="fa fa-ban fa-stack-2x text-danger"></i></span></a></li>
+                            <li><a href="javascript:void(0);" id="prev" class="menu-item btn btn-default btn-disabled" disabled="disabled"><span class="text-face">Previous</span><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i></a></li>
+                            <li><a href="javascript:void(0);" id="next" class="menu-item btn  btn-default btn-disabled" disabled="disabled"><span class="text-face">Next</span><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+                            <li><a href="javascript:void(0);" id="close" class="menu-item btn btn-default btn-disabled" disabled="disabled"><span class="text-face">Exit Activity</span><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></li>
 							<li><a href="javascript:void(0);" id="exit"  class="menu-item btn last right-half-pill btn-default ">Exit Course</a></li>
                         </ul>
 				    </div>
 					
 					<div id="scorm_2004" class="navigation clear-fix unselectable pill scorm_2004 navbox" id="navigation" role="navigation">
 					    <ul id="menu" class="nav-menu pull-left">
-					      <li><a href="javascript:void(0);" id="suspendall" class="menu-item btn first left-half-pill btn-default capital btn-emphasis">SuspendAll</a></li>
-					      <li><a href="javascript:void(0);" id="abandon" class="menu-item btn btn-default">Abandon</a></li>
-					      <li><a href="javascript:void(0);" id="abandonall" class="menu-item btn btn-default">AbandonAll</a></li>
-					      <li><a href="javascript:void(0);" id="exit" class="menu-item btn btn-default">Exit</a></li>
-					      <li><a href="javascript:void(0);" id="exitall" class="menu-item btn last right-half-pill btn-default">ExitAll</a></li>
+					      <li><a href="javascript:void(0);" id="suspendall" class="menu-item btn first left-half-pill btn-default capital btn-emphasis"><span>SuspendAll</span></a></li>
+					      <li><a href="javascript:void(0);" id="abandon" class="menu-item btn btn-default"><span>Abandon</span></a></li>
+					      <li><a href="javascript:void(0);" id="abandonall" class="menu-item btn btn-default"><span>AbandonAll</span></a></li>
+					      <li><a href="javascript:void(0);" id="exit" class="menu-item btn btn-default"><span>Exit</span></a></li>
+					      <li><a href="javascript:void(0);" id="exitall" class="menu-item btn last right-half-pill btn-default"><span>ExitAll</span></a></li>
 						</ul>
 					</div>
 					
@@ -115,7 +116,7 @@
 	      <div id="toc-menu" class="colm-3 alpha mainview package-visible" style="margin-right:0;margin-left:5px;width:235px;">
 		       <div id="course-toc" class="package-toc unselectable">
 			       
-			   </div> 
+			     </div> 
 		  </div>
 		  <div id="viewport" class="colm-9 omega mainview viewport" style="margin-left:1px">
 		       <div id="sco-launch" class="embed-responsive embed-responsive-16by9">

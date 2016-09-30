@@ -172,6 +172,8 @@
 			   
 			   // #### DATABASE COMMS - SEND CMI DATA TO DB ####
 			   E.on('wait:send_to_lms', function(data, type){
+                       var _status = 0;
+
 			           $sendDefered = new w_n.$cdvjs.Futures();
 			           // Use this in prod: ---> 
 					   //$accessControl.setMessage("appdatacomms", {ajaxtype:type,payload:data,context:$smallDefered});
@@ -184,11 +186,13 @@ data:T.json_stringify({"cmi_activity":data.actvity,"cmi_learner":data.student,"a
                                 success:function(payload, text, xhr){
                                        var datastr;
                                        console.log("Success... " + text);
+                                       _status = 100;
                                        datastr = T.json_stringify(payload);
                                        console.log("json data recieved from SCORM {CMI_POST} route: "+datastr);
                                        console.log("Success on SCORM {CMI_POST} request route to: "+data.target_url);
                                 },
                                 error:function(xhr, text){
+                                	   _status = 300;
                                        console.log("Server Error on SCORM {CMI_POST} request due to '"+text+"'");
                                        console.log("Failure on SCORM {CMI_POST} request route to: "+data.target_url);
                                 }
@@ -208,7 +212,7 @@ data:T.json_stringify({"cmi_activity":data.actvity,"cmi_learner":data.student,"a
 									    }  
 						   
 								       $sendDefered.resolve({
-			                                   "status":payload.status, // a status of '100' is a successful CMI_POST, a status of '300' is an unsuccessful CMI_POST
+			                                   "status":_status, // a status of '100' is a successful CMI_POST, a status of '300' is an unsuccessful CMI_POST
 			                                   "type":type
 			                           });
                              });
@@ -229,15 +233,15 @@ data:T.json_stringify({"cmi_activity":data.actvity,"cmi_learner":data.student,"a
                                 success:function(payload, text, xhr){
                                        var datastr;
                                        console.log("Success... " + text);
+                                       _status = 100;
                                        datastr = T.json_stringify(payload);
                                        console.log("json data recieved from SCORM {CMI_GET} route: "+datastr);
                                        console.log("Success on SCORM {CMI_GET} request route to: "+data.target_url);
-                                       _status = 100;
                                 },
                                 error:function(xhr, text){
+                                	   _status = 300;
                                        console.log("Server Error on SCORM {CMI_GET} request due to '"+text+"'");
                                        console.log("Failure on SCORM {CMI_GET} request route to: "+data.target_url);
-                                       _status = 300;
                                 }
                             }).always(function(payload){
 							                  
