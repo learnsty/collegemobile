@@ -1,11 +1,7 @@
 /*!
- * @project: <synergixe - SynLMS>
- * @file: <api.js> - 
- * @author: <https://team.synergixe.com.ng>
- * @created: <04/03/2015>
+ * @project: CollegeMobile (c) 2016
  * @desc: {this implements the core of SCORM runtime adapter}
  * @remarks: {SCORM API v1.2}
- * @contributors: { @patrick, @chris, @dominic }
  */
 
 (function(w, d){
@@ -51,7 +47,7 @@
 	         this.isBusy = true;
              var done = false, restore, mastery_score, mode, status, log, 
 			           rack = apiObjectStore[this.id]["instance_private_data"],
-                       command = rack["command_obj"];
+                       command = rack["command_obj"], _self = this;
 			 
 			 w.SSR.consoleLog("SCO is currently calling LMSInitialize...");	 
 			 
@@ -125,9 +121,17 @@
 			// enforce appropriate R/W access to DB-->(CMI) 
 			command.controlCMIAccess(true);
 			// ensure data from adapter gets to the LMS
-			 if(false){ /* supposed to be (w.inDesktopEnv) in actual production code */
+
+            // Main Solution here: (Send data to DB after Xsecs of intialization) review later...
+			 if(false){ 
+			 	  /* supposed to be (w.inDesktopEnv) in actual production code */
 			      w.SSR.beginCommitLoop();
 			 }	
+
+             // Temp Solution here: Send data to DB after 3secs of intialization...
+			 setTimeout(function(){
+                _self.LMSCommit("");
+			 }, 3500);
              // set cookie for monitoring data...
 			 Cs.set_cookie("runtime_session_clause", "start");
 			 // pass this call...

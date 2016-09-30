@@ -16,11 +16,16 @@ var handle_query = function(aspect, url){
          return null;
   },
 
+  settings = {
+    "student":handle_query("studentId"),
+    "course":handle_query("courseId")
+  }
+
   options = {
         page:0,
         id:"pdf-view",
       	pdfOpenParams: {
-                      navpanes: 0,
+          navpanes: 0,
       		toolbar: 0,
       		statusbar: 0,
       		pagemode: "thumbs",
@@ -33,5 +38,7 @@ var handle_query = function(aspect, url){
 status = w.PDFObject.supportsPDFs,
 
 myPDF = w.PDFObject.embed(handle_query("open"), d.getElementsByTagName("section")[0], options);
+
+
 
 }(this, this.document));

@@ -27,16 +27,15 @@ $getownerdetails=$crud->dbselect('lecturer','*',"rand='".$data['library']['libra
      <meta property="og:url" content="<?php echo $dirlocation.$data['Details'][0]['year'].'/'.$data['Details'][0]['month'].'/'.$data['Details'][0]['link'].'/';?>" />
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="<?php echo utf8_decode($data['library']['library'][0]['course_description']);?>" />
-    <meta property="og:description"   content="<?php echo utf8_decode($data['library']['library'][0]['course_description']).'...';?>
-" />
-    <meta property="og:image"         content="<?php echo $dirlocation.'app/views/images/'.$data['library']['library'][0]['banner'];?>" />
+    <meta property="og:description"   content="<?php echo utf8_decode($data['library']['library'][0]['course_description']).'...';?>">
+    <meta property="og:image" content="<?php echo $dirlocation.'app/views/images/'.$data['library']['library'][0]['banner'];?>">
 
     <meta name="keywords" content="<?php echo $data['library']['library'][0]['course_title'];?>">
     
 
 
 
-<script>PDFObject.embed("c_app/views/courseware/2016_08_08_57064.pdf", "#example1");</script>
+<!--<script>PDFObject.embed("c_app/views/courseware/2016_08_08_57064.pdf", "#example1");</script>-->
 <script>
 //var vid_duration = Math.round(document.getElementById("video").duration);
 //alert(vid_duration);
@@ -109,6 +108,9 @@ $getownerdetails=$crud->dbselect('lecturer','*',"rand='".$data['library']['libra
     <?php }else{?>
     
   <a href="javascript:void(0);" onclick="javascript:scormLauncher (<?php echo $dirlocation . 'c_app/views/learn/scorm/'; ?> + 'runtime.php?debug=on&studentId=<?php echo $_SESSION['accessLogin']['user_id'];?>&courseId=<?php echo $data['library']['library'][0]['courseware_id'];?>&studentName=<?php echo str_replace(' ', ',',$_SESSION['accessLogin']['full_name']);?>&courseRootDir=<?php echo $dirlocation;?>c_app/views/courseware/')" class="btn btn-success" style="margin-top:10px">Goto Courseware</a>
+
+    /* <a href="javascript:void(0);" class="btn btn-default" onclick="javascript:pdfLauncher('<?php echo $dirlocation . 'c_app/view/learn/pdfviewer/'; ?>viewer.php?open=<?php $dirlocation . 'c_app/view/courseware/8892342.pdf'; ?>&studentId=xxxxxxx');"></a> */
+   
     
     <?php }?>
    
@@ -192,7 +194,7 @@ $crud=new Crud;
     <h1>Congratulations <?php echo $_SESSION['accessLogin']['full_name'];?>!</h1>
     You have successfully enrolled For This Course
 <br/>
-      <a href="javascript:void(0);" onclick="javascript:scormLauncher (<?php echo $dirlocation . 'c_app/views/learn/scorm/'; ?> + 'runtime.php?debug=on&studentId=<?php echo $_SESSION['accessLogin']['user_id'];?>&courseId=<?php echo $data['library']['library'][0]['courseware_id'];?>&studentName=<?php echo str_replace(' ', ',',$_SESSION['accessLogin']['full_name']);?>&courseRootDir=<?php echo $dirlocation;?>c_app/views/courseware/')" class="btn btn-success" style="margin-top:10px">Goto Courseware</a>
+      <a href="javascript:void(0);" onclick="javascript:scormLauncher('<?php echo $dirlocation . 'c_app/views/learn/scorm/'; ?>' + 'runtime.php?debug=on&studentId=<?php echo $_SESSION['accessLogin']['user_id'];?>&courseId=<?php echo $data['library']['library'][0]['courseware_id'];?>&studentName=<?php echo str_replace(' ', ',',$_SESSION['accessLogin']['full_name']);?>&courseRootDir=<?php echo $dirlocation;?>c_app/views/courseware/')" class="btn btn-success" style="margin-top:10px">Goto Courseware</a>
     </div>
         
     </div>
