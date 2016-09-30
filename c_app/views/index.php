@@ -29,7 +29,7 @@
     
 <div class="wrapper"> 
 	
-	<div class="page-section" style="background:url(<?php echo $dirlocation;?>c_app/views/images/photoslider1.jpg) no-repeat;background-size:cover;padding:72px 0;height:;">
+	<div class="page-section" style="background:url(<?php echo $dirlocation;?>c_app/views/images/photoslider1.jpg) no-repeat center center fixed;background-size:cover;-moz-background-size:cover;-o-background-size;cover;-webkit-backgroud-size:cover;padding:50px 0;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<?php echo $dirlocation;?>c_app/views/images/photoslider1.jpg', sizingMethod='scale');-ms-filter:;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
