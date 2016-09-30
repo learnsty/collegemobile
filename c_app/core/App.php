@@ -9,11 +9,14 @@ class App{
 		$url=$this->parseUrl();
         
         $dirlocation="http://".$_SERVER['HTTP_HOST']."/collegemobile/";
+        //$dirlocation="http://".$_SERVER['HTTP_HOST']."/";
 		if(file_exists("c_app/controllers/".$url[0].".php")){
             
 			$this->controller=$url[0];
 		}
         else{
+            //echo $url[0];
+            
             if($url[0]!=''){
                            
             $this->controller='pages';    
@@ -28,7 +31,7 @@ class App{
             
         }
         
-        
+       
         
 		//unset($url[0]);
 		require_once('c_app/controllers/'.$this->controller.'.php');

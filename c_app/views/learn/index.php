@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<!-- saved from url=(0045)http://webapplayers.com/inspinia_admin-v2.5/# -->
 <html>
-<!--
-<script async src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/analytics.js"></script><script id="tinyhippos-injected">if (window.top.ripple) { window.top.ripple("bootstrap").inject(window, document); }</script>
-<script id="tinyhippos-injected">if (window.top.ripple) { window.top.ripple("bootstrap").inject(window, document); }</script>-->
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!---
  <meta name="description" content="<?php echo $dirlocation;?>learn/courseware/view?view=<?php echo $_GET['view'];?>">
      <meta property="og:url" content="<?php echo $dirlocation.$data['Details'][0]['year'].'/'.$data['Details'][0]['month'].'/'.$data['Details'][0]['link'].'/';?>" />
     <meta property="og:type"          content="website" />
@@ -19,33 +15,21 @@
     <meta property="og:image"         content="<?php echo $dirlocation.'app/views/images/'.$data['library']['library'][0]['banner'];?>" />
 
     <meta name="keywords" content="Nigerian Courseware, Online Learning, Online Tutoring">
-    
+ -->   
     <title>College Mobile Dashboard</title>
 
-    <link href="<?php echo $dirlocation;?>c_app/views/learn/inspinia/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo $dirlocation;?>c_app/views/learn/inspinia/font-awesome.css" rel="stylesheet">
-
-    <!-- Toastr style -->
-    <link href="<?php echo $dirlocation;?>c_app/views/learn/inspinia/toastr.min.css" rel="stylesheet">
-
-    <!-- Gritter -->
-    <link href="<?php echo $dirlocation;?>c_app/views/learn/inspinia/jquery.gritter.css" rel="stylesheet">
-
-    <link href="<?php echo $dirlocation;?>c_app/views/learn/inspinia/animate.css" rel="stylesheet">
-    <link href="<?php echo $dirlocation;?>c_app/views/learn/inspinia/style.css" rel="stylesheet">
-    <link href="<?php echo $dirlocation;?>c_app/views/css/font-awesome.css" rel="stylesheet" />
+    <link href="<?php echo $dirlocation;?>c_app/views/learn/inspinia/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo $dirlocation;?>c_app/views/learn/inspinia/font-awesome/css/font-awesome.css" rel="stylesheet">
+     <link href="<?php echo $dirlocation;?>c_app/views/css/font-awesome.css" rel="stylesheet">
+    <link href="<?php echo $dirlocation;?>c_app/views/learn/inspinia/css/animate.css" rel="stylesheet">
+    <link href="<?php echo $dirlocation;?>c_app/views/learn/inspinia/css/style.css" rel="stylesheet">
 	
+</head>
 
-    
-    
-<style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style></head>
+<body class="" ng-app="jaraja" ng-controller="DashboardCtrl">
 
-<body class="pace-done" ng-app="jaraja" ng-controller="DashboardCtrl"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
-  <div class="pace-progress-inner"></div>
-</div>
-<div class="pace-activity"></div></div>
     <div id="wrapper">
-        
+       
          <?php include('snipets/left_panel.php');?>
                     
                         
@@ -55,7 +39,7 @@
         </div>
                 
         <div class="row">
-            <?php include('pages/'.$data['content'][1].'.php');?>
+            <?php //include('pages/'.$data['content'][1].'.php');?>
         </div>
 
         </div>
@@ -343,6 +327,7 @@
                                     <h4>The generated</h4>
                                     <!--<div class="small pull-right m-t-xs">9 hours ago</div>-->
                                     There are many variations of passages of Lorem Ipsum available.
+
                                     <div class="small">Completion with: 22%</div>
                                     <div class="small text-muted m-t-xs">Project end: 4:00 pm - 12.06.2014</div>
                                 </a>
@@ -400,7 +385,6 @@
                     </div>
 
                     <div id="tab-3" class="tab-pane">
-
                         <div class="sidebar-title">
                             <h3><i class="fa fa-gears"></i> Settings</h3>
                             <small><i class="fa fa-tim"></i> You have 14 projects. 10 not completed.</small>
@@ -524,12 +508,14 @@
         </div>
     </div>
 
+
+
 <!----- Javascript Button Trigger --->    
     <div class="modal inmodal fade" id="myModal6" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
                                 <div class="modal-dialog modal-sm">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                            
                                             <h5 class="modal-title">Hello <br/><?php echo $_SESSION['accessLogin']['full_name'];?></h5>
                                         </div>
                                         <div class="modal-body">
@@ -551,7 +537,7 @@
                                 <div class="modal-dialog modal-sm">
                                     <div class="modal-content" style="text-align:center">
                                         <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                            
                                             <h5 class="modal-title">Hey <br/><?php echo $_SESSION['accessLogin']['full_name'];?></h5>
                                         </div>
                                         <div class="modal-body">
@@ -577,7 +563,7 @@
                                 <div class="modal-dialog modal-sm">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                            
                                             <h5 class="modal-title">Hello <br/><?php echo $_SESSION['accessLogin']['full_name'];?></h5>
                                         </div>
                                         <div class="modal-body">
@@ -600,9 +586,8 @@
                             </div>
     
     
-                            
-                            
-                            
+
+
 	<script src="<?php echo $dirlocation;?>c_app/views/js/angular/angular.js"></script>
     <script src="<?php echo $dirlocation;?>c_app/views/js/angular/angular-cookies.js"></script>
     <script src="<?php echo $dirlocation;?>c_app/views/js/angular/angular-route.js"></script>
@@ -611,278 +596,53 @@
     <script src="<?php echo $dirlocation;?>c_app/views/js/controllers/dashboardCtrl.js"></script>
 
     <!-- Mainly scripts -->
-    <script src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/jquery-2.1.1.js"></script>
-    <script src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/bootstrap.min.js"></script>
-    <script src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/jquery.metisMenu.js"></script>
-    <script src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/jquery.slimscroll.min.js"></script>
+    <script src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/js/jquery-2.1.1.js"></script>
+    <script src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/js/bootstrap.js"></script>
+    <script src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+    <!-- Custom and plugin javascript -->
+    <script src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/js/inspinia.js"></script>
+    <script src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/js/plugins/pace/pace.min.js"></script>
+
+    <!-- Peity -->
+    <script src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/js/plugins/peity/jquery.peity.min.js"></script>
+
+    <!-- Peity -->
+    <script src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/js/demo/peity-demo.js"></script>
+
+</body>
+
+ <!-- Toastr -->
+    <?php if(!isset($_SESSION['enterfirst'])){?>
+    <script src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/js/toastr/toastr.min.js"></script>
+    <?php }?>
+    
+    
+    <!---ADD TO ANY JS--->
+  <script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
 
 <script>
 a2a_config.onclick = 1;
 </script>
 
-    <!-- Custom and plugin javascript 
-    <script src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/inspinia.js"></script>
--->
 
-
-    <!-- jQuery UI 
-    <script src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/jquery-ui.min.js"></script>
--->
-
-    <!-- Toastr -->
-    <?php if (!isset($_SESSION['enterfirst'])){?>
-    <script src="<?php echo $dirlocation;?>c_app/views/learn/inspinia/toastr.min.js"></script>
-    <?php }?>
-    
-    
+  
     <!----TRIGGER THE MODAL WINDOW ON LOGIN-->
     <?php if (!isset($_SESSION['enterfirst'])){?>
 	<script>
-	$(document).ready(function() {
-		
 	$( "#signinregister" ).trigger( "click" );
-	});
 	</script>
 	<?php }?>
     
     
-	<script>
-	
-	<?php
+
+<?php
 	session_start();
 	$_SESSION['enterfirst']='1'
 	;?>
-
-    // Config box
-
-    // Enable/disable fixed top navbar
-    $('#fixednavbar').click(function (){
-        if ($('#fixednavbar').is(':checked')){
-            $(".navbar-static-top").removeClass('navbar-static-top').addClass('navbar-fixed-top');
-            $("body").removeClass('boxed-layout');
-            $("body").addClass('fixed-nav');
-            $('#boxedlayout').prop('checked', false);
-
-            if (localStorageSupport){
-                localStorage.setItem("boxedlayout",'off');
-            }
-
-            if (localStorageSupport){
-                localStorage.setItem("fixednavbar",'on');
-            }
-        } else{
-            $(".navbar-fixed-top").removeClass('navbar-fixed-top').addClass('navbar-static-top');
-            $("body").removeClass('fixed-nav');
-            $("body").removeClass('fixed-nav-basic');
-            $('#fixednavbar2').prop('checked', false);
-
-            if (localStorageSupport){
-                localStorage.setItem("fixednavbar",'off');
-            }
-
-            if (localStorageSupport){
-                localStorage.setItem("fixednavbar2",'off');
-            }
-        }
-    });
-
-    // Enable/disable fixed top navbar
-    $('#fixednavbar2').click(function (){
-        if ($('#fixednavbar2').is(':checked')){
-            $(".navbar-static-top").removeClass('navbar-static-top').addClass('navbar-fixed-top');
-            $("body").removeClass('boxed-layout');
-            $("body").addClass('fixed-nav').addClass('fixed-nav-basic');
-            $('#boxedlayout').prop('checked', false);
-
-            if (localStorageSupport){
-                localStorage.setItem("boxedlayout",'off');
-            }
-
-            if (localStorageSupport){
-                localStorage.setItem("fixednavbar2",'on');
-            }
-        } else {
-            $(".navbar-fixed-top").removeClass('navbar-fixed-top').addClass('navbar-static-top');
-            $("body").removeClass('fixed-nav').removeClass('fixed-nav-basic');
-            $('#fixednavbar').prop('checked', false);
-
-            if (localStorageSupport){
-                localStorage.setItem("fixednavbar2",'off');
-            }
-            if (localStorageSupport){
-                localStorage.setItem("fixednavbar",'off');
-            }
-        }
-    });
-
-    // Enable/disable fixed sidebar
-    $('#fixedsidebar').click(function (){
-        if ($('#fixedsidebar').is(':checked')){
-            $("body").addClass('fixed-sidebar');
-            $('.sidebar-collapse').slimScroll({
-                height: '100%',
-                railOpacity: 0.9
-            });
-
-            if (localStorageSupport){
-                localStorage.setItem("fixedsidebar",'on');
-            }
-        } else{
-            $('.sidebar-collapse').slimscroll({destroy: true});
-            $('.sidebar-collapse').attr('style', '');
-            $("body").removeClass('fixed-sidebar');
-
-            if (localStorageSupport){
-                localStorage.setItem("fixedsidebar",'off');
-            }
-        }
-    });
-
-    // Enable/disable collapse menu
-    $('#collapsemenu').click(function (){
-        if ($('#collapsemenu').is(':checked')){
-            $("body").addClass('mini-navbar');
-            SmoothlyMenu();
-
-            if (localStorageSupport){
-                localStorage.setItem("collapse_menu",'on');
-            }
-
-        } else{
-            $("body").removeClass('mini-navbar');
-            SmoothlyMenu();
-
-            if (localStorageSupport){
-                localStorage.setItem("collapse_menu",'off');
-            }
-        }
-    });
-
-    // Enable/disable boxed layout
-    $('#boxedlayout').click(function (){
-        if ($('#boxedlayout').is(':checked')){
-            $("body").addClass('boxed-layout');
-            $('#fixednavbar').prop('checked', false);
-            $('#fixednavbar2').prop('checked', false);
-            $(".navbar-fixed-top").removeClass('navbar-fixed-top').addClass('navbar-static-top');
-            $("body").removeClass('fixed-nav');
-            $("body").removeClass('fixed-nav-basic');
-            $(".footer").removeClass('fixed');
-            $('#fixedfooter').prop('checked', false);
-
-            if (localStorageSupport){
-                localStorage.setItem("fixednavbar",'off');
-            }
-
-            if (localStorageSupport){
-                localStorage.setItem("fixednavbar2",'off');
-            }
-
-            if (localStorageSupport){
-                localStorage.setItem("fixedfooter",'off');
-            }
-
-
-            if (localStorageSupport){
-                localStorage.setItem("boxedlayout",'on');
-            }
-        } else{
-            $("body").removeClass('boxed-layout');
-
-            if (localStorageSupport){
-                localStorage.setItem("boxedlayout",'off');
-            }
-        }
-    });
-
-    // Enable/disable fixed footer
-    $('#fixedfooter').click(function (){
-        if ($('#fixedfooter').is(':checked')){
-            $('#boxedlayout').prop('checked', false);
-            $("body").removeClass('boxed-layout');
-            $(".footer").addClass('fixed');
-
-            if (localStorageSupport){
-                localStorage.setItem("boxedlayout",'off');
-            }
-
-            if (localStorageSupport){
-                localStorage.setItem("fixedfooter",'on');
-            }
-        } else{
-            $(".footer").removeClass('fixed');
-
-            if (localStorageSupport){
-                localStorage.setItem("fixedfooter",'off');
-            }
-        }
-    });
-
-    // SKIN Select
-    $('.spin-icon').click(function (){
-        $(".theme-config-box").toggleClass("show");
-    });
-
-    // Default skin
-    $('.s-skin-0').click(function (){
-        $("body").removeClass("skin-1");
-        $("body").removeClass("skin-2");
-        $("body").removeClass("skin-3");
-    });
-
-    // Blue skin
-    $('.s-skin-1').click(function (){
-        $("body").removeClass("skin-2");
-        $("body").removeClass("skin-3");
-        $("body").addClass("skin-1");
-    });
-
-    // Inspinia ultra skin
-    $('.s-skin-2').click(function (){
-        $("body").removeClass("skin-1");
-        $("body").removeClass("skin-3");
-        $("body").addClass("skin-2");
-    });
-
-    // Yellow skin
-    $('.s-skin-3').click(function (){
-        $("body").removeClass("skin-1");
-        $("body").removeClass("skin-2");
-        $("body").addClass("skin-3");
-    });
-
-    if (localStorageSupport){
-        var collapse = localStorage.getItem("collapse_menu");
-        var fixedsidebar = localStorage.getItem("fixedsidebar");
-        var fixednavbar = localStorage.getItem("fixednavbar");
-        var fixednavbar2 = localStorage.getItem("fixednavbar2");
-        var boxedlayout = localStorage.getItem("boxedlayout");
-        var fixedfooter = localStorage.getItem("fixedfooter");
-
-        if (collapse == 'on'){
-            $('#collapsemenu').prop('checked','checked')
-        }
-        if (fixedsidebar == 'on'){
-            $('#fixedsidebar').prop('checked','checked')
-        }
-        if (fixednavbar == 'on'){
-            $('#fixednavbar').prop('checked','checked')
-        }
-        if (fixednavbar2 == 'on'){
-            $('#fixednavbar2').prop('checked','checked')
-        }
-        if (boxedlayout == 'on'){
-            $('#boxedlayout').prop('checked','checked')
-        }
-        if (fixedfooter == 'on') {
-            $('#fixedfooter').prop('checked','checked')
-        }
-    }
-</script>
-
-
+    
+    
 <!-- THIS SCRIPT CONTROLS THE PROFILE IMAGE SHOWING ON TARGET ID !-->       
 <script>
 function showImage(src,target,target2) {
@@ -902,7 +662,5 @@ showImage(src,target,target2);
 </script> 
 
 
-
-</body>
 
 </html>

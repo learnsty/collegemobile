@@ -9,12 +9,7 @@
 $(document).ready(function () {
 
 
-    // Add body-small class if window less than 768px
-    if ($(this).width() < 769) {
-        $('body').addClass('body-small')
-    } else {
-        $('body').removeClass('body-small')
-    }
+  
 
     // MetsiMenu
     $('#side-menu').metisMenu();
@@ -98,10 +93,7 @@ $(document).ready(function () {
 
     // Append config box / Only for demo purpose
     // Uncomment on server mode to enable XHR calls
-    $.get("skin-config.html", function (data) {
-        if (!$('body').hasClass('no-skin-config'))
-            $('body').append(data);
-    });
+   
 
     // Minimalize menu
     $('.navbar-minimalize').click(function () {
@@ -182,7 +174,6 @@ $(document).ready(function () {
     })
 });
 
-
 // Minimalize menu when screen is less than 768px
 $(window).bind("resize", function () {
     if ($(this).width() < 769) {
@@ -191,7 +182,6 @@ $(window).bind("resize", function () {
         $('body').removeClass('body-small')
     }
 });
-
 // Local Storage functions
 // Set proper body class and plugins based on user configuration
 $(document).ready(function () {

@@ -1,9 +1,8 @@
 <nav class="navbar-default navbar-static-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav metismenu" id="side-menu" style="display: block;">
-                
-<li class="nav-header">
-                        <div class="dropdown profile-element"> <span>
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu" style="display:none">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> <span>
                              <img src="<?php if($_SESSION['accessLogin']['avater']==''){echo $dirlocation.'c_app/views/images/anonymous.png';}else{echo $dirlocation.'c_app/views/images/'.$_SESSION['accessLogin']['avater'];}?>" class="img-circle thumbnail" id="target2" style="width:70px;height:70px;margin-bottom:0;" onclick="$('#fileinput').trigger('click');" />
     <img src="<?php echo $dirlocation;?>c_app/views/images/default.gif" width="10%" class="loader2" style="display:none;margin:auto" />            
   <form id="uploadpassport" enctype="multipart/form-data" name="uploadavater">
@@ -26,48 +25,43 @@
                                 <li><a href="<?php echo $dirlocation;?>logout.php">Logout</a></li>
                             </ul>
                         </div>
-                        <div class="logo-element">
-                            IN+
-                        </div>
-                    </li>
-<li>
-                        <a class="<?php if($data['content'][1]==''){echo 'active-menu';}?>" href="<?php echo $dirlocation;?>learn"><i class="fa fa-dashboard"></i> Dashboard</a>
-                    </li>
+                    <div class="logo-element">
+                        CM
+                    </div>
+                </li>
+                <li>
+                    <a class="<?php if($data['content'][1]==''){echo 'active-menu';}?>" href="<?php echo $dirlocation;?>learn"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> </a>
                     
-                    <li>
-                        <a class="<?php if($data['content'][1]=='library'){echo 'active-menu';}?>" href="<?php echo $dirlocation;?>learn/library"><i class="fa fa-dashboard"></i> Library</a>
-                    </li>
+                </li>
+                <li>
+                    <a class="<?php if($data['content'][1]=='library'){echo 'active-menu';}?>" href="<?php echo $dirlocation;?>learn/library"><i class="fa fa-book"></i> <span class="nav-label">Library</span></a>
+                </li>
+                <li>
+                    <a class="<?php if($data['content'][1]=='courseware'){echo 'active-menu';}?>" href="<?php echo $dirlocation;?>learn/courseware"><i class="fa fa-file-o"></i> <span class="nav-label">Courseware</span></a>
                     
-                     <li style="display:nne">
-                        <a class="<?php if($data['content'][1]=='courseware'){echo 'active-menu';}?>" href="<?php echo $dirlocation;?>learn/courseware"><i class="fa fa-book"></i> Courseware</a>
-                    </li>
+                </li>
+                <li>
+                    <a class="<?php if($data['content'][1]=='classroom'){echo 'active-menu';}?>" href="<?php echo $dirlocation;?>learn/classroom"><i class="fa fa-desktop"></i> <span class="nav-label">Classroom </span></a>
                     
-                    <li>
-                        <a class="<?php if($data['content'][1]=='classroom'){echo 'active-menu';}?>" href="<?php echo $dirlocation;?>learn/classroom"><i class="fa fa-desktop"></i> Classroom</a>
-                    </li>
-					 
-       
-                     <li style="display:none">
-                  <a class="<?php if($data['content'][1]=='pages'){echo 'active-menu';}?>" href="<?php echo $dirlocation;?>learn/pages"><i class="fa fa-bar-chart-o"></i> Projects</a>
-                    </li>
-         
-			           <li>
-                  <a class="<?php if($data['content'][1]=='community'){echo 'active-menu';}?>" href="<?php echo $dirlocation;?>learn/community"><i class="fa fa-group"></i> My Community</a>
-                    </li>
+                </li>
+                <li style="display:none">
+                     <a class="<?php if($data['content'][1]=='pages'){echo 'active-menu';}?>" href="<?php echo $dirlocation;?>learn/pages"><i class="fa fa-pie-chart"></i> <span class="nav-label">Projects</span>  </a>
+                </li>
+                <li>
+                     <a class="<?php if($data['content'][1]=='community'){echo 'active-menu';}?>" href="<?php echo $dirlocation;?>learn/community"><i class="fa fa-users"></i> <span class="nav-label">My Community</span></a>
+                </li>
+                <li>
+                    <a class="landing_link <?php if($data['content'][1]=='feeds'){echo 'active-menu';}?>" href="<?php echo $dirlocation;?>learn/feeds"><i class="fa fa-rss"></i> <span class="nav-label">Feeds</span></a>
                     
-                    <li>
-                  <a class="<?php if($data['content'][1]=='feeds'){echo 'active-menu';}?>" href="<?php echo $dirlocation;?>learn/feeds"><i class="fa fa-rss"></i> Feeds</a>
-                    </li>
-                    
-                     <li>
-                  <a class="<?php if($data['content'][1]=='pages'){echo 'active-menu';}?>" href="<?php echo $dirlocation;?>logout.php"><i class="fa fa-bar-chart-o"></i> Logout</a>
-                    </li>
-      </ul>
-                    </li>
-                    
-                </ul>
+                </li>
+                
+                <li>
+                     <a class="<?php if($data['content'][1]=='pages'){echo 'active-menu';}?>" href="<?php echo $dirlocation;?>logout.php"><i class="fa fa-sign-out"></i> <span class="nav-label">Logout</span></a>
+                   
+                </li>
+                
+                
+            </ul>
 
-            </div>
-        </nav>
-
-
+        </div>
+    </nav>

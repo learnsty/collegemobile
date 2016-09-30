@@ -1,14 +1,13 @@
-
 <!DOCTYPE html>
 <!-- saved from url=(0046)http://chimpgroup.com/themeforest/smart-study/ -->
 <html lang="en" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><script id="tinyhippos-injected">if (window.top.ripple) { window.top.ripple("bootstrap").inject(window, document); }</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>College Mobile</title>
+<title>College Mobile </title>
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/bootstrap.css" rel="stylesheet">
-<link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/bootstrap-theme.css" rel="stylesheet">
 <link href="<?php echo $dirlocation;?>c_app/views/css/font-awesome.css" rel="stylesheet">
+<link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/iconmoon.css" rel="stylesheet">
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/chosen.css" rel="stylesheet">
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/jquery.mobile-menu.css" rel="stylesheet">
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/style.css" rel="stylesheet">
@@ -16,28 +15,20 @@
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/color.css" rel="stylesheet">
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/widget.css" rel="stylesheet">
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/responsive.css" rel="stylesheet">
-<!-- <link href="assets/css/bootstrap-rtl.css" rel="stylesheet"> Uncomment it if needed! -->
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-<script src="<?php echo $dirlocation;?>c_app/views/css/indexjs/jquery.js"></script>
-<script src="<?php echo $dirlocation;?>c_app/views/css/indexjs/modernizr.js"></script>
-<script src="<?php echo $dirlocation;?>c_app/views/css/indexjs/bootstrap.min.js"></script>
-</head>
-<body class="wp-smartstudy">
-<div class="wrapper"> 
-	<!-- Side Menu Start -->
-	<div id="overlay"></div>
     
-	<!-- Side Menu End -->
-	<!-- Header Start -->
-	<?php include('c_app/views/snipets/header.php');?>
-	<!-- Header End --> 
-	<!-- Banner Start --> 
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    
+    
+<script src="<?php echo $dirlocation;?>c_app/views/js/indexjs/jquery.js"></script>
+<script src="<?php echo $dirlocation;?>c_app/views/js/indexjs/modernizr.js"></script>
+<script src="<?php echo $dirlocation;?>c_app/views/js/indexjs/bootstrap.min.js"></script>
+</head>
+<body class="">
+    <?php include('snipets/header.php');?>
+    
+<div class="wrapper"> 
+	
 	<div class="page-section" style="background:url(<?php echo $dirlocation;?>c_app/views/images/photoslider1.jpg) no-repeat;background-size:cover;padding:72px 0;height:;">
 		<div class="container">
 			<div class="row">
@@ -79,7 +70,7 @@
 			  <div class="row">
 			  	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="cs-section-title left">
-					  <h2>Catalogue &amp; Courseware <?php echo $data['keydate'];?></h2>
+					  <h2>Catalogue &amp; Courseware</h2>
 					  <p style="color:#aaaaaa !important;">We've got you covered in your career </p>
 					</div>
               	</div>
@@ -108,15 +99,16 @@
 				}
 					?>
 					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="margin:0">
-                        <a href="<?php echo $dirlocation.$grab['url'];?>">
+                        
 						<div class="cs-courses courses-grid" style="box-shadow:1px 1px 1px #e8e8e8">
+                        <a href="<?php echo $dirlocation.$grab['url'];?>">
 							<div class="cs-media" style="max-height:100px;overflow:hidden">
-								<figure><img src="<?php echo $dirlocation;?>c_app/views/<?php echo $grab['banner'];?>"  alt=""></a></figure>
-							</div>
+								<figure><img src="<?php echo $dirlocation;?>c_app/views/<?php echo $grab['banner'];?>"  alt=""></figure>
+							</div></a>
 							<div class="" style="padding-left:5px;">
 								<div class="">
                                     <a href="<?php echo $dirlocation.$grab['url'];?>">
-								  <h5><?php echo substr($grab['course_title'],0,18).'...';?></h5>
+								  <h5 style="margin-bottom:0;"><?php echo substr($grab['course_title'],0,18).'...';?></h5>
                                     </a>
 								</div>
 								
@@ -156,11 +148,12 @@
                    
 						<ul class="cs-graduate-slider slick-initialized slick-slider">
 							<div> 
-								<li class="slick-slide slick-cloned" data-slick-index="-5" aria-hidden="true" style="width: 200px;">
+								<li class="slick-slide slick-cloned" data-slick-index="-5" aria-hidden="true" style="width: 200px;list-style:none;float:left">
 								<div class="cs-media">
 									<figure> <img src="<?php echo $dirlocation;?>c_app/views/images/nsuk.jpg" class="img-responsive" width="" alt=""> </figure>
 								</div>
-							</li><li class="slick-slide slick-cloned" data-slick-index="-4" aria-hidden="true" style="width: 200px;">
+							</li>
+                                <li class="slick-slide slick-cloned" data-slick-index="-4" aria-hidden="true" style="width: 200px;list-style:none;float:left">
 								<div class="cs-media">
 									<figure> <img src="<?php echo $dirlocation;?>c_app/views/images/uniabuja.jpg" class="img-responsive" width="" alt=""> </figure>
 								</div>
@@ -186,14 +179,14 @@
 	<!-- Footer End --> 
 </div>
 </div>
-<script src="<?php echo $dirlocation;?>c_app/views/css/indexjs/esponsive.menu.js"></script> <!-- Slick Nav js --> 
-<script src="<?php echo $dirlocation;?>c_app/views/css/indexjs/chosen.select.js"></script> <!-- Chosen js --> 
-<script src="<?php echo $dirlocation;?>c_app/views/css/indexjs/slick.js"></script> <!-- Slick Slider js --> 
-<script src="<?php echo $dirlocation;?>c_app/views/css/indexjs/jquery.mCustomScrollbar.concat.min.js"></script> 
-<script src="<?php echo $dirlocation;?>c_app/views/css/indexjs/jquery.mobile-menu.min.js"></script><!-- Side Menu js --> 
-<script src="<?php echo $dirlocation;?>c_app/views/css/indexjs/counter.js"></script><!-- Counter js --> 
+<script src="<?php echo $dirlocation;?>c_app/views/js/indexjs/responsive.menu.js"></script> <!-- Slick Nav js --> 
+<script src="<?php echo $dirlocation;?>c_app/views/js/indexjs/chosen.select.js"></script> <!-- Chosen js --> 
+<script src="<?php echo $dirlocation;?>c_app/views/js/indexjs/slick.js"></script> <!-- Slick Slider js --> 
+<script src="<?php echo $dirlocation;?>c_app/views/js/indexjs/jquery.mCustomScrollbar.concat.min.js"></script> 
+<script src="<?php echo $dirlocation;?>c_app/views/js/indexjs/jquery.mobile-menu.min.js"></script><!-- Side Menu js --> 
+<script src="<?php echo $dirlocation;?>c_app/views/js/indexjs/counter.js"></script><!-- Counter js --> 
 
 <!-- Put all Functions in functions.js --> 
-<script src="./SmartStudy.edu_files/functions.js"></script>
+<script src="<?php echo $dirlocation;?>c_app/views/js/indexjs/functions.js"></script>
 
 </body></html>

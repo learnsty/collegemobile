@@ -26,21 +26,25 @@ $getownerdetails=$crud->dbselect('lecturer','*',"rand='".$data['details']['conte
     <title>College Mobile: Learn, Teach and Collaborate</title>
 
 
-<link href="<?php echo $dirlocation;?>c_app/views/css/font-awesome.css" rel="stylesheet">
+<link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/bootstrap.css" rel="stylesheet">
+    <link href="<?php echo $dirlocation;?>c_app/views/css/font-awesome.css" rel="stylesheet">
+<link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/bootstrap-theme.css" rel="stylesheet">
+<link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/iconmoon.css" rel="stylesheet">
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/chosen.css" rel="stylesheet">
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/jquery.mobile-menu.css" rel="stylesheet">
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/style.css" rel="stylesheet">
-
+<link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/cs-smartstudy-plugin.css" rel="stylesheet">
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/color.css" rel="stylesheet">
+<link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/widget.css" rel="stylesheet">
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/responsive.css" rel="stylesheet">
-<link href="<?php echo $dirlocation;?>c_app/views/css/bootstrap.css" rel="stylesheet">
+      
     <link rel="stylesheet" href="css/reset.css">
 
 
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
 
         <link rel="stylesheet" href="<?php echo $dirlocation;?>c_app/views/css/loginstyle.css">
-		<link rel="stylesheet" href="<?php echo $dirlocation;?>c_app/views/css/bootstrap.css">
+		
     
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     

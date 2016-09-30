@@ -8,33 +8,38 @@
     <meta name="author" content="">
     <title>College Mobile: Learn, Teach and Collaborate</title>
 
-
-<link href="<?php echo $dirlocation;?>c_app/views/css/font-awesome.css" rel="stylesheet">
+<link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/bootstrap.css" rel="stylesheet">
+    <link href="<?php echo $dirlocation;?>c_app/views/css/font-awesome.css" rel="stylesheet">
+<link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/bootstrap-theme.css" rel="stylesheet">
+<link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/iconmoon.css" rel="stylesheet">
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/chosen.css" rel="stylesheet">
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/jquery.mobile-menu.css" rel="stylesheet">
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/style.css" rel="stylesheet">
-
+<link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/cs-smartstudy-plugin.css" rel="stylesheet">
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/color.css" rel="stylesheet">
+<link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/widget.css" rel="stylesheet">
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/responsive.css" rel="stylesheet">
+<!-- <link href="assets/css/bootstrap-rtl.css" rel="stylesheet"> Uncomment it if needed! -->
 
-    <link rel="stylesheet" href="css/reset.css">
+   
 
-
-    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
-
-        <link rel="stylesheet" href="<?php echo $dirlocation;?>c_app/views/css/loginstyle.css">
-		<link rel="stylesheet" href="<?php echo $dirlocation;?>c_app/views/css/bootstrap.css">
     
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link rel="stylesheet" href="<?php echo $dirlocation;?>c_app/views/css/loginstyle.css">
+	
+         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+      
+		
     
   </head>
 
   <body class="wp-smartstudy" style="background: url(<?php echo $dirlocation;?>c_app/views/images/login_background3.png) repeat fixed;font-family: 'Raleway', sans-serif;" ng-app="jaraja"  ng-controller="Login">
-  
+      
+  <?php include('c_app/views/snipets/header.php');?>
+      
+
   <div class="wrapper"> 
 
-      <?php include('c_app/views/snipets/header.php');?>
-
+      
 <div class="col-lg-4" style="float:none;margin:80px auto;text-align:center;">
 
 <h2 style="color:#06C">Welcome To College Mobile</h2>	
@@ -107,7 +112,7 @@ name="loginForm" action="<?php $_SERVER['PHP_SELF'];?>" method="post" class="log
 
         <script src="<?php echo $dirlocation;?>c_app/views/js/loginindex.js"></script>
 
-    
+     <script src="<?php echo $dirlocation;?>c_app/views/js/bootstrap.min.js"></script>
     
     
   </body>

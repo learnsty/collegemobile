@@ -21,8 +21,9 @@
                         <li class="">
                             <a href="<?php echo $dirlocation;?>learn/courseware/search"><?php if($data['content'][2]=='search'){echo '<strong>';}?>Search</strong></a>
                         </li>
-                       
+                     
                     </ol>
+                    
                 </div>
                 
    <form style="" method="get" action="<?php echo $dirlocation;?>learn/courseware/search">
@@ -57,7 +58,7 @@
           <div class="input-group-addon">
           <span class="">Skillset</span>
           </div>
-    <select name="searchSkillset" class="form-control">
+    <select name="searchSkillset" class="form-control" style="margin-bottom:3px">
     <option value="0">--Select Skillset--</option>     
     <?php while ($grab=mysql_fetch_array($data['skillset'][1])){
 	$skillset[]=$grab;	
@@ -75,7 +76,9 @@
     <span class="fa fa-search"></span> Search
   </button>
    	</div>
+    <div style="clear:both"></div> 
    	</form>
+     
             </div>
 
                <div class="col-lg-12" style="padding-top:10px">

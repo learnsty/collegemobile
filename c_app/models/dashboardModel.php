@@ -33,7 +33,7 @@ ini_set('display_errors',1);
 	require_once('c_app/models/FilterModel.php');
 	$filter = new filterModel;
 
-	$array_list=array('jpg','jpeg','png','gif','pdf','doc','docx','xls','csv','mov','mp3','mpeg','avi','txt','html','zip','rar');
+	$array_list=array('jpg','jpeg','png','gif','pdf','doc','docx','xls','csv','mov','mp3','mp4','mpeg','avi','txt','html','zip','rar');
 	$name=date('Y_m_d_').rand(1000,100000);
 	$name2='banner_'.date('Y_m_d_').rand(1000,100000);
 	$banner_array_list=array('jpg','jpeg','png');
@@ -118,7 +118,7 @@ ini_set('display_errors',1);
 	require_once('c_app/models/FilterModel.php');
 	$filter = new filterModel;
 
-	$array_list=array('jpg','jpeg','png','gif','pdf','doc','docx','xls','csv','mov','mp3','mpeg','avi','txt','html','zip','rar');
+	$array_list=array('jpg','jpeg','png','gif','pdf','doc','docx','xls','csv','mov','mp3','mp4','mpeg','avi','txt','html','zip','rar');
 	$name=date('Y_m_d_').rand(1000,100000);
 	$name2='banner_'.date('Y_m_d_').rand(1000,100000);
 	$banner_array_list=array('jpg','jpeg','png');

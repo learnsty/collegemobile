@@ -32,11 +32,16 @@ exit;
 
     <!-- Bootstrap Core CSS -->
     
-<link href="<?php echo $dirlocation;?>c_app/views/css/font-awesome.css" rel="stylesheet">
+<link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/bootstrap.css" rel="stylesheet">
+    <link href="<?php echo $dirlocation;?>c_app/views/css/font-awesome.css" rel="stylesheet">
+<link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/bootstrap-theme.css" rel="stylesheet">
+<link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/iconmoon.css" rel="stylesheet">
+<link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/chosen.css" rel="stylesheet">
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/jquery.mobile-menu.css" rel="stylesheet">
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/style.css" rel="stylesheet">
-
+<link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/cs-smartstudy-plugin.css" rel="stylesheet">
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/color.css" rel="stylesheet">
+<link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/widget.css" rel="stylesheet">
 <link href="<?php echo $dirlocation;?>c_app/views/css/indexcss/responsive.css" rel="stylesheet">
 
    

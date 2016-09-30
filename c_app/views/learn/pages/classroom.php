@@ -32,7 +32,7 @@
           <div class="input-group-addon">
           <span class="">Category</span>
           </div>
-    <select name="searchCategory" class="form-control">
+    <select name="searchCategory" class="form-control" style="margin-bottom:3px">
     <option value="0">--Select Catalogue--</option>     
     <?php while ($grab=mysql_fetch_array($data['catalogue'][1])){?>
     <option value="<?php echo $grab['catalogue_id'];?>" <?php if($data['library']['library'][0]['catalogue_id']==$grab['catalogue_id']){echo "selected='selected'";}?>><?php echo $grab['catalogue_title'];?></option>
@@ -47,6 +47,7 @@
     <span class="fa fa-search"></span> Search
   </button>
    	</div>
+    <div style="clear:both"></div> 
    	</form>
             </div>
                <div class="col-lg-12" style="padding-top:10px">

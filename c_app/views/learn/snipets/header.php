@@ -1,6 +1,6 @@
 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
-            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="<?php echo $dirlocation;?>learn/#"><i class="fa fa-bars"></i> </a>
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
             <form role="search" class="navbar-form-custom" action="<?php echo $dirlocation;?>learn/search">
                 <div class="form-group">
                     <input type="text" placeholder="Search for something..." class="form-control" name="SearchKeyword" id="top-search">

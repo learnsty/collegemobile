@@ -15,7 +15,7 @@ class Controller{
 		
 		//$dirlocation="http://".$_SERVER['HTTP_HOST']."/";
 		
-		
+		//echo $view;
 		require_once('c_app/views/'.$view.'.php');
 	}
 }

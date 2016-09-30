@@ -8,11 +8,11 @@
                           <div class="widget-section-title"><h6 style="color:#fff !important">Connect with us</h6></div>
                             <ul>
                                 <li>
-                                	<i class="icon-light-bulb "></i>
+                                	
                                     <p>
-                                    <img src="<?php echo $dirlocation;?>c_app/views/images/facebook_icon.png" style="float:left"> 
-                                    <img src="<?php echo $dirlocation;?>c_app/views/images/twitter_icon.png" style="float:left"> 
-                                    <img src="<?php echo $dirlocation;?>c_app/views/images/google_icon.png" style="float:left">     
+             <a href="http://www.facebook.com/CollegeMobileApp" target="_blank"><img src="<?php echo $dirlocation;?>c_app/views/images/facebook_icon.png" style="float:left"></a>
+             <a href="http://www.twitter.com/_collegemobile" target="_blank"><img src="<?php echo $dirlocation;?>c_app/views/images/twitter_icon.png" style="float:left"> </a>
+             <a href="https://plus.google.com/113865201439205196252/" target="_blank"><img src="<?php echo $dirlocation;?>c_app/views/images/google_icon.png" style="float:left"></a>    
                                         </p>
                                 </li>
                             </ul>	
