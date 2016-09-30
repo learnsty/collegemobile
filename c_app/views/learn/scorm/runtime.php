@@ -129,7 +129,7 @@
 	   <div class="footer">
 	      <div class="footer-wrapper relative clear-fix">
 			     <div class="pull-left">
-				     <a href="javascript:void(0);" class="link line-block-box"><strong>Progress </strong><b class="progress-bar relative"><span class="progress-strip"><i class="progress-value absolute snap-right">0%</i></span></b></a>
+				     <a href="javascript:void(0);" class="link line-block-box"><strong>Progress</strong><b class="progress-bar relative"><span class="progress-strip"><i class="progress-value absolute snap-right">0%</i></span></b></a>
 					 <span id="activity-meter" class="line-block-box"> ----- </span>
 				 </div>
 				 <div class="pull-right">

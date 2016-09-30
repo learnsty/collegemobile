@@ -6,13 +6,13 @@
  ;(function(w_n, d){
 
      var $win,
-	    E = w_n.$cdvjs.Application.command("emitter"),
 		Cs = w_n.$cdvjs.Application.command("cachestore"),
 		lmsHost = w_n.location.protocol + "//" + w_n.location.host + (w_n.location.port ? ":"+w_n.location.port : "");
 
-    w_n.$cdvjs.Application.registerModule("pdfunit", ["jQuery"], function(box, $accessControl){ 	
+    w_n.$cdvjs.Application.registerModule("pdfunit", ["jQuery", "tools"], function(box, $accessControl){ 	
           
           var config = null,
+              T = box.tools, 
               $ = box.jQuery,
               w = w_n.innerWidth || d.body.clientWidth,
               h = w_n.innerHeight || d.body.clientHeight,
@@ -32,7 +32,7 @@
                   }else{
                   	 ++w_n.windowsOpened;
                   }
-		      }
+		      };
 
 		      w_n.pdfLauncher = function(url){
 
