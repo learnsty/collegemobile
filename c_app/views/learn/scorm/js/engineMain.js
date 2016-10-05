@@ -16,7 +16,7 @@
 		
         PlayerDriver = (function(){
             var body,
-				url = primerUrl + "c_app/view/learn/scorm/engine_SCORM/players_SCORM/",
+				url = primerUrl + "collegemobile/c_app/view/learn/scorm/engine_SCORM/players_SCORM/",
 			    pathMap = {
 				   "1.2":"player1_2.html",
 				   "1.3":"player2004.html",
