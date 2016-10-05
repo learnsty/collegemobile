@@ -68,21 +68,20 @@ $time=time();
 $path_name=$path.$name.'.'.$ext;
 
 if($ext=='zip'){
-   $target_path = $path . $file_name;
-   $target_folder = $name . "/";
-   $msg = move_uploaded_file($file['tmp_name'], $target_path);
+   $target_folder = $path . $name . "/";
+   $msg = move_uploaded_file($file['tmp_name'], $path_name);
     if($msg){
         $zip = new ZipArchive();
-        $x = $zip->open($target_path);
+        $x = $zip->open($path_name);
         if($x === TRUE){
-            $zip->extractTo($path . $target_folder);
+            $zip->extractTo($target_folder);
             $zip->close();
-            unlink($target_path);
+            unlink($path_name);
         }
     }
     $path_name=$target_folder;
 }else{
-   $msg=move_uploaded_file($file['tmp_name'],$path_name);
+   $msg=move_uploaded_file($file['tmp_name'], $path_name);
 }
 /*if($move==TRUE){
 $form_array=array(
