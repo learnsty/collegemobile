@@ -167,12 +167,12 @@ name="myForm" method="post" novalidate id="register" class="login" style="float:
 
 <div class="input-group">
           <div class="input-group-addon">
-          <span class="">I am a</span>
+          <span class="">I want to ...</span>
           </div>
          <select class="form-control" name="register_type">
-         <option value="student">Student</option>
-          <option value="lecturer">Teacher</option>
-          </select>
+         <option value="student">Learn</option>
+          <option value="lecturer">Teach</option>
+          </select><!-- option->Student / option->Teacher -->
 
            </div>                            
                                 <label>

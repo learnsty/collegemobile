@@ -36,7 +36,7 @@
 					<div class="cs-column-text">
 						<span style="display:inline-block;padding:10px 20px;background:rgba(0,0,0,0.8);color:#FFF;font-size:18px;margin-bottom:22px;">What would you like to learn?</span>
 						<h1 style="color:#ffffff !important;line-height:64px !important;text-transform:capitalize !important;font-family:'Trebuchet MS', Arial, Helvetica, sans-serif !important">Learn, Share & Co-create</h1>
-						<p style="font-size:33px !important;line-height:42px !important;color:#FFF !important;font-weight:400 !important;margin-bottom:30px;">We help Students easily achieve academic success.
+						<p style="font-size:33px !important;line-height:42px !important;color:#FFF !important;font-weight:400 !important;margin-bottom:30px;"><!--We help Students easily achieve academic success.-->We help yous achieve more as a student, corporate trainee or facilitator.
 
 </p>
 						<a style="font-size:13px;font-weight:700;line-height:19px;padding:16px 28px;border-radius:50px;color:#FFF;text-decoration:none;outline:none;" class="cs-bgcolor" href="<?php echo $dirlocation;?>register">Get Started!</a>
