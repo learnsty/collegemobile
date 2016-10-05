@@ -19,7 +19,7 @@ $getownerdetails=$crud->dbselect('lecturer','*',"rand='".$data['library']['libra
 
 ///////// CHECK THE EXTENTION OF FILE////
 $extension = strtolower(end(explode('.',$data['library']['library'][0]['path'])));
-  echo $extension;             
+  //echo $extension;             
 
 ?>
 
@@ -109,10 +109,10 @@ $extension = strtolower(end(explode('.',$data['library']['library'][0]['path']))
 <?php }?>    
     <?php }else{?>
     
-  <?php if($extension==''){?>
-      <a href="javascript:void(0);" onclick="javascript:scormLauncher('<?php echo $dirlocation . 'c_app/views/learn/scorm/'; ?>' + 'runtime.php?debug=on&studentId=<?php echo $_SESSION['accessLogin']['user_id'];?>&courseId=<?php echo $data['library']['library'][0]['courseware_id'];?>&studentName=<?php echo str_replace(' ', ',',$_SESSION['accessLogin']['full_name']);?>&courseRootDir=<?php echo $dirlocation;?>c_app/views/courseware/')" class="btn btn-success" style="margin-top:10px">Goto Courseware</a>
+  <?php if($extension=='zip'){?>
+      <a href="javascript:void(0);" onclick="javascript:scormLauncher('<?php echo $dirlocation . 'c_app/views/learn/scorm/'; ?>' + 'runtime.php?debug=on&studentId=<?php echo $_SESSION['accessLogin']['user_id'];?>&courseId=<?php echo $data['library']['library'][0]['courseware_id'];?>&studentName=<?php echo str_replace(' ', ',',$_SESSION['accessLogin']['full_name']);?>&courseRootDir=<?php echo $dirlocation;?>c_app/views/courseware/<?php echo $data['library']['library'][0]['path'];?>')" class="btn btn-success" style="margin-top:10px">Goto Courseware</a>
     <?php }elseif($extension=='pdf'){?> 
-    <a href="javascript:void(0);" class="btn btn-success" onclick="javascript:pdfLauncher('<?php echo $dirlocation . 'c_app/view/learn/pdfviewer/'; ?>viewer.php?open=<?php echo $dirlocation . 'c_app/view/'.$data['library']['library'][0]['path'];?>&studentId=<?php echo $_SESSION['accessLogin']['full_name'];?>');">Goto Courseware</a>
+    <a href="javascript:void(0);" class="btn btn-success" onclick="javascript:pdfLauncher('<?php echo $dirlocation . 'c_app/views/learn/pdfviewer/'; ?>viewer.php?open=<?php echo $dirlocation . 'c_app/views/'.$data['library']['library'][0]['path'];?>&studentId=<?php echo $_SESSION['accessLogin']['full_name'];?>');">Goto Courseware</a>
     
 
     
@@ -209,11 +209,11 @@ $crud=new Crud;
     You have successfully enrolled For This Course
 <br/>
     
-    <?php if($extension==''){?>
-      <a href="javascript:void(0);" onclick="javascript:scormLauncher('<?php echo $dirlocation . 'c_app/views/learn/scorm/'; ?>' + 'runtime.php?debug=on&studentId=<?php echo $_SESSION['accessLogin']['user_id'];?>&courseId=<?php echo $data['library']['library'][0]['courseware_id'];?>&studentName=<?php echo str_replace(' ', ',',$_SESSION['accessLogin']['full_name']);?>&courseRootDir=<?php echo $dirlocation;?>c_app/views/courseware/'.<?php echo $data['library']['library'][0]['path'];?>')" class="btn btn-success" style="margin-top:10px">Goto Courseware</a>
+    <?php if($extension=='zip'){?>
+      <a href="javascript:void(0);" onclick="javascript:scormLauncher('<?php echo $dirlocation . 'c_app/views/learn/scorm/'; ?>' + 'runtime.php?debug=on&studentId=<?php echo $_SESSION['accessLogin']['user_id'];?>&courseId=<?php echo $data['library']['library'][0]['courseware_id'];?>&studentName=<?php echo str_replace(' ', ',',$_SESSION['accessLogin']['full_name']);?>&courseRootDir=<?php echo $dirlocation;?>c_app/views/courseware/<?php echo $data['library']['library'][0]['path'];?>')" class="btn btn-success" style="margin-top:10px">Goto Courseware</a>
     <?php }elseif($extension=='pdf'){?>
     
-    <a href="javascript:void(0);" class="btn btn-success" onclick="javascript:pdfLauncher('<?php echo $dirlocation . 'c_app/view/learn/pdfviewer/'; ?>viewer.php?open=<?php echo $dirlocation . 'c_app/view/'.$data['library']['library'][0]['path'];?>&studentId=<?php echo $_SESSION['accessLogin']['full_name'];?>');">Goto Coursewaressss2</a>
+    <a href="javascript:void(0);" class="btn btn-success" onclick="javascript:pdfLauncher('<?php echo $dirlocation . 'c_app/views/learn/pdfviewer/'; ?>viewer.php?open=<?php echo $dirlocation . 'c_app/views/'.$data['library']['library'][0]['path'];?>&studentId=<?php echo $_SESSION['accessLogin']['full_name'];?>');">Goto Courseware</a>
     
     <!---- if THE EXTENTION IS NOT A PDF AND ITS NOT A VIDEO--->
     <?php }else{?>
