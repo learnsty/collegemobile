@@ -612,9 +612,9 @@ $forminsertarray=array('classroom_title'=>$classroom_title,'classroom_descriptio
         
     $this->crud=new Crud; 	  
     
-   // $return['content']=$this->crud->dbselect("courseware","*","url='".mysql_real_escape_string($url)."'",""); 
+    $return['content']=$this->crud->dbselect("tbl_scorm_data","*","url='".mysql_real_escape_string($url)."'",""); 
         
-      
+      return $return;
     }
         
     public function scorm_get(){
@@ -626,9 +626,12 @@ $forminsertarray=array('classroom_title'=>$classroom_title,'classroom_descriptio
         
     $this->crud=new Crud; 	  
     
-    //$return['content']=$this->crud->dbselect("courseware","*","url='".mysql_real_escape_string($url)."'",""); 
-        
-      
+    $return['content']=$this->crud->dbselect("tbl_scorm_data","*","url='".mysql_real_escape_string($url)."'",""); 
+        if(count($return['content']) == 0){
+            $return['content'] = '{}';
+        }
+    return $return;  
+
     }    
         
 	

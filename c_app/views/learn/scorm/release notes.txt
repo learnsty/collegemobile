@@ -31,7 +31,6 @@ CAVEATS (2)
 
 
 FINAL UPDATES FOR THIS VERSION (v1.0.0-beta) - timeline late 2016
- - Finalize footer UI
  - Setup basic shortcut keys for UI actions
  - Setup Mobile Context Requirments (Majorly CSS - Media Queries)
 

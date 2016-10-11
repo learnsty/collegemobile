@@ -39,7 +39,7 @@ class scorm extends Controller{
         $data=$dashboard->$url();
 	
 		
-	   return $data;
+	   return $data['content'];
 		//$this->view('',array('method'=>'',));
 
 

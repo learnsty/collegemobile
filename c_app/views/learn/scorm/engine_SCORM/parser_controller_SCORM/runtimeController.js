@@ -114,7 +114,7 @@
 			IMS_Sequencer = null,
 			cmiStore,
 			DBConfig = {global:false},
-			primerUrl = w.location.protocol + "//" + w.location.host + (w.location.port? ":"+w.location.port : "") + "/c_app/views/learn/scorm",
+			primerUrl = w.location.protocol + "//" + w.location.host + (w.location.port? ":"+w.location.port : "") + "/collegemobile/c_app/views/learn/scorm",
 			output;
 
  function RuntimeController(parser){

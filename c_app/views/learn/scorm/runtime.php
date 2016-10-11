@@ -40,7 +40,8 @@
          background-color:#f5f5f5;
      }
   </style>
-
+  
+  <script src="./js/lib/cdv_js.js" type="text/javascript"></script>
   <script type="text/javascript">
       (function(){
             var T = $cdvjs.Application.command("tools");
@@ -50,10 +51,9 @@
             var ew = w - 237;
             var eh = h - 80;
             T.add_stylesheet("width:"+ew+"px;", "html #viewport");
-            T.add_stylesheet("height:"+eh+"px;", "html #shade";
+            T.add_stylesheet("height:"+eh+"px;", "html #shade");
       }());
   </script>
-  <script src="./js/lib/cdv_js.js" type="text/javascript"></script>
   <script src="./js/engineConfig.js" type="text/javascript"></script>
   <script src="./js/engineSetup.js" type="text/javascript"></script>
   <script src="./engine_SCORM/parser_controller_SCORM/parseManifest.js" type="text/javascript"></script>

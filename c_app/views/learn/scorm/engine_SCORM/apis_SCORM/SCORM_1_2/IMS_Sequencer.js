@@ -560,10 +560,10 @@ function IMS_Sequencer(command){
   this.context = new AICC_ScriptContext(command);
   
   var preProcessScript = function(s){
-        var entitiesMap = {
+      var entitiesMap = {
 	       '&amp;':'&',
-		   '&lt;':'<',
-		   '&gt;':'>'
+		     '&lt;':'<',
+		     '&gt;':'>'
 	    };
   },
   waitAndLaunchSCOResource = function(setup){
@@ -629,7 +629,7 @@ function IMS_Sequencer(command){
 
             if(w.SSR.HAS_COM_RIGHTS){		
                   w.SSR.resetGlobals("HAS_COM_RIGHTS");	
-                  w.frames["runtime"].location = w.SSR.APP_HOST + "/c_app/views/learn/scorm/synergixe.html";
+                  w.frames["runtime"].location = w.SSR.APP_HOST + "/collegemobile/c_app/views/learn/scorm" + "/synergixe.html";
 		              //command.saveStateData(); // persist the $stateProvider data to LMS database (not for now though)
 		              setTimeout(function(){
 	                      w.API && w.API.LMSFinish("");

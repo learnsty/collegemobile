@@ -296,8 +296,8 @@ data:T.json_stringify({"cmi_activity":data.actvity,"cmi_learner":data.student,"a
 		   
 		   ($cdvjs.Application.command("channel")).recieve_message(function(json, loc){
 		        if(!$win || (loc.indexOf('/scorm') == -1)){
-		        	console.log("SCORM: Here we areeeeeeeeeeeeeeeeeeeeeeee!");
-				    return;
+		        	console.log("SCORM: Here we are locked out     - loc: "+loc);
+				    //return;
 				}
                 console.log("SynLMS is recieving request from SSR: "+json);
                 json = T.json_parse(json);
