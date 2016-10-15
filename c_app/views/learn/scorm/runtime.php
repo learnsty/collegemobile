@@ -40,7 +40,7 @@
          background-color:#f5f5f5;
      }
   </style>
-  
+
   <script src="./js/lib/cdv_js.js" type="text/javascript"></script>
   <script type="text/javascript">
       (function(){
@@ -48,7 +48,7 @@
             var w = window.innerWidth; /*|| document.body.clientWidth;*/
             var h = window.innerHeight; /*|| document.body.clientHeight;*/
           
-            var ew = w - 237;
+            var ew = w - 242;
             var eh = h - 80;
             T.add_stylesheet("width:"+ew+"px;", "html #viewport");
             T.add_stylesheet("height:"+eh+"px;", "html #shade");

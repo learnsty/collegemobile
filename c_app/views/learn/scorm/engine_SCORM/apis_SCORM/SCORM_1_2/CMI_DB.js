@@ -505,12 +505,12 @@
         },
         recallData = function(activityID){ // recalls/reads data from the LMS database (MySQL)
                   currActivityID = activityID;
-                  var comma = '",', data = '{"activity":"'+activityID+comma+'"target_url":"'+w.SMConfig.collectDataURL+comma+'"student":"'+w.SMConfig.studentID+comma+'"course":"'+w.SMConfig.courseID+'"}';       
+                  var comma = '",', data = '{"activity":"'+activityID+comma+'"target_url":"'+w.SMConfig.collectDataURL+comma+'"student":"'+w.SMConfig.studentID+comma+'"name":"'+w.SMConfig.studentName+comma+'"course":"'+w.SMConfig.courseID+'"}';       
                   w.SSR.postChannel('{"cmi_control_flag":true, "cmi_timestamp_token":"'+T.get_time_string("MMDDYY")+'", "cmi_transport_type":"CMI_GET","cmi_transport_data":'+data+'}');
                   return true;
         },
         pushData = function(cmiData){
-             var comma = '",', data = '{"activity":"'+currActivityID+comma+'"target_url":"'+w.SMConfig.saveDataURL+comma+'"student":"'+w.SMConfig.studentID+comma+'"course":"'+w.SMConfig.courseID+comma+'"json":'+cmiData+'}';       
+             var comma = '",', data = '{"activity":"'+currActivityID+comma+'"target_url":"'+w.SMConfig.saveDataURL+comma+'"student":"'+w.SMConfig.studentID+comma+'"name":"'+w.SMConfig.studentName+comma+'"course":"'+w.SMConfig.courseID+comma+'"json":'+cmiData+'}';       
              w.SSR.postChannel('{"cmi_control_flag":true, "cmi_timestamp_token":"'+T.get_time_string("MMDDYY")+'", "cmi_transport_type":"CMI_POST", "cmi_transport_data":'+data+'}'); 
              return true;
         },

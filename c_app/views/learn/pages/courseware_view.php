@@ -110,7 +110,7 @@ $extension = strtolower(end(explode('.',$data['library']['library'][0]['path']))
     <?php }else{?>
     
   <?php if(gettype(strpos($extension,'/')) == 'integer'){?>
-      <a href="javascript:void(0);" onclick="javascript:scormLauncher('<?php echo $dirlocation . 'c_app/views/learn/scorm/'; ?>' + 'runtime.php?debug=on&studentId=<?php echo $_SESSION['accessLogin']['user_id'];?>&courseId=<?php echo $data['library']['library'][0]['courseware_id'];?>&studentName=<?php echo str_replace(' ', ',',$_SESSION['accessLogin']['full_name']);?>&courseRootDir=collegemobile/c_app/views/<?php echo $data['library']['library'][0]['path'];?>')" class="btn btn-success" style="margin-top:10px">Goto Courseware</a>
+      <a href="javascript:void(0);" onclick="javascript:scormLauncher('<?php echo $dirlocation . 'c_app/views/learn/scorm/'; ?>' + 'runtime.php?debug=on&studentId=<?php echo $_SESSION['accessLogin']['user_id'];?>&courseId=<?php echo $data['library']['library'][0]['courseware_id'];?>&studentName=<?php echo str_replace(' ', ',',$_SESSION['accessLogin']['full_name']);?>&courseRootDir=c_app/views/<?php echo $data['library']['library'][0]['path'];?>')" class="btn btn-success" style="margin-top:10px">Goto Courseware</a>
     <?php }elseif(gettype(strpos($extension,'pdf')) == 'integer'){?> 
     <a href="javascript:void(0);" class="btn btn-success" onclick="javascript:pdfLauncher('<?php echo $dirlocation . 'c_app/views/learn/pdfviewer/'; ?>viewer.php?open=<?php echo $dirlocation . 'c_app/views/'.$data['library']['library'][0]['path'];?>&studentId=<?php echo $_SESSION['accessLogin']['full_name'];?>');">Goto Courseware</a>
     
@@ -210,7 +210,7 @@ $crud=new Crud;
 <br/>
     
     <?php if(gettype(strpos($extension,'/')) == 'integer'){?>
-      <a href="javascript:void(0);" onclick="javascript:scormLauncher('<?php echo $dirlocation . 'c_app/views/learn/scorm/'; ?>' + 'runtime.php?debug=on&studentId=<?php echo $_SESSION['accessLogin']['user_id'];?>&courseId=<?php echo $data['library']['library'][0]['courseware_id'];?>&studentName=<?php echo str_replace(' ', ',',$_SESSION['accessLogin']['full_name']);?>&courseRootDir=collegemobile/c_app/views/<?php echo $data['library']['library'][0]['path'];?>')" class="btn btn-success" style="margin-top:10px">Go to Courseware</a>
+      <a href="javascript:void(0);" onclick="javascript:scormLauncher('<?php echo $dirlocation . 'c_app/views/learn/scorm/'; ?>' + 'runtime.php?debug=on&studentId=<?php echo $_SESSION['accessLogin']['user_id'];?>&courseId=<?php echo $data['library']['library'][0]['courseware_id'];?>&studentName=<?php echo str_replace(' ', ',',$_SESSION['accessLogin']['full_name']);?>&courseRootDir=c_app/views/<?php echo $data['library']['library'][0]['path'];?>')" class="btn btn-success" style="margin-top:10px">Go to Courseware</a>
     <?php }elseif(gettype(strpos($extension,'pdf')) == 'integer'){?>
     
     <a href="javascript:void(0);" class="btn btn-success" onclick="javascript:pdfLauncher('<?php echo $dirlocation . 'c_app/views/learn/pdfviewer/'; ?>viewer.php?open=<?php echo $dirlocation . 'c_app/views/'.$data['library']['library'][0]['path'];?>&studentId=<?php echo $_SESSION['accessLogin']['full_name'];?>');">Goto Courseware</a>

@@ -4,7 +4,6 @@
  */
 
 (function(w, d){
-
    // Entry
    var  T = $cdvjs.Application.command("tools"),
 		
@@ -15,10 +14,9 @@
 		$dfr = new $cdvjs.Futures(),
 		
         PlayerDriver = (function(){
-        	w.SSR.consoleLog("CollegeMobile Location Pathname:  "+ w.location.pathname);
 
             var body,
-				url = primerUrl + "collegemobile/c_app/views/learn/scorm" + "/engine_SCORM/players_SCORM/",
+				url = primerUrl + ((w.location.pathname.substr(1)).replace('/runtime.php','')) + "/engine_SCORM/players_SCORM/",
 			    pathMap = {
 				   "1.2":"player1_2.html",
 				   "1.3":"player2004.html",

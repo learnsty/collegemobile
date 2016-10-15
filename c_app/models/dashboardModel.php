@@ -604,21 +604,22 @@ $forminsertarray=array('classroom_title'=>$classroom_title,'classroom_descriptio
 
         
     public function scorm_set(){
-    echo 'set';    
+    //echo 'set';    
     $course_id=$_POST['adl_course'];
     $activity=$_POST['cmi_activity'];
     $studentid=$_POST['cmi_learner'];
+    
     $json=$_POST['cmi_json'];
         
     $this->crud=new Crud; 	  
     
-    $return['content']=$this->crud->dbselect("tbl_scorm_data","*","url='".mysql_real_escape_string($url)."'",""); 
+    $return['content']=$this->crud->dbinsert("tbl_scorm_data", array('cmi_json'=>$json, 'student_id'=>$studentid, 'cmi_activity'=>$activity, 'courseware_id'=>$course_id, 'cmi_learner'=>'-', 'adl_course'=>'-')); 
         
-      return $return;
+      return json_encode($return['content']);
     }
         
     public function scorm_get(){
-    echo 'get';    
+    //echo 'get';    
     $course_id=$_GET['adl_course'];
     $activity=$_GET['cmi_activity'];
     $studentid=$_GET['cmi_learner'];
@@ -626,11 +627,11 @@ $forminsertarray=array('classroom_title'=>$classroom_title,'classroom_descriptio
         
     $this->crud=new Crud; 	  
     
-    $return['content']=$this->crud->dbselect("tbl_scorm_data","*","url='".mysql_real_escape_string($url)."'",""); 
+    $return['content']=$this->crud->dbselect("tbl_scorm_data","cmi_json","student_id='".mysql_real_escape_string($studentid)."' AND courseware_id='".mysql_real_escape_string($course_id)."' AND cmi_activity='".mysql_real_escape_string($activity)."'",""); 
         if(count($return['content']) == 0){
             $return['content'] = '{}';
         }
-    return $return;  
+    return json_encode($return['content']);  
 
     }    
         

@@ -629,7 +629,7 @@ function IMS_Sequencer(command){
 
             if(w.SSR.HAS_COM_RIGHTS){		
                   w.SSR.resetGlobals("HAS_COM_RIGHTS");	
-                  w.frames["runtime"].location = w.SSR.APP_HOST + "/collegemobile/c_app/views/learn/scorm" + "/synergixe.html";
+                  w.frames["runtime"].location = w.SSR.APP_HOST + (w.location.pathname.replace('/runtime.php','')) + "/synergixe.html";
 		              //command.saveStateData(); // persist the $stateProvider data to LMS database (not for now though)
 		              setTimeout(function(){
 	                      w.API && w.API.LMSFinish("");
