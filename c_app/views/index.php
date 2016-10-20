@@ -29,17 +29,17 @@
     
 <div class="wrapper"> 
 	
-	<div class="page-section" style="background:url(<?php echo $dirlocation;?>c_app/views/images/photoslider1.jpg) no-repeat center center fixed;background-size:cover;-moz-background-size:cover;-o-background-size;cover;-webkit-backgroud-size:cover;padding:50px 0;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<?php echo $dirlocation;?>c_app/views/images/photoslider1.jpg', sizingMethod='scale');-ms-filter:;">
+	<div class="page-section" style="background:url('<?php echo $dirlocation;?>c_app/views/images/photoslider1.jpg') no-repeat center center fixed;background-size:cover;-moz-background-size:cover;-o-background-size:cover;-webkit-background-size:cover;padding:50px 0;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<?php echo $dirlocation;?>c_app/views/images/photoslider1.jpg', sizingMethod='scale');-ms-filter:;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="cs-column-text">
 						<span style="display:inline-block;padding:10px 20px;background:rgba(0,0,0,0.8);color:#FFF;font-size:18px;margin-bottom:22px;">What would you like to learn?</span>
-						<h1 style="color:#ffffff !important;line-height:64px !important;text-transform:capitalize !important;font-family:'Trebuchet MS', Arial, Helvetica, sans-serif !important">Learn, Share & Co-create</h1>
-						<p style="font-size:33px !important;line-height:42px !important;color:#FFF !important;font-weight:400 !important;margin-bottom:30px;"><!--We help Students easily achieve academic success.-->We help yous achieve more as a student, corporate trainee or facilitator.
+						<h1 style="color:#ffffff !important;line-height:64px !important;text-transform:capitalize !important;font-family:'Trebuchet MS', Arial, Helvetica, sans-serif !important">Learn, Share &amp; Co-create</h1>
+						<p style="font-size:33px !important;line-height:42px !important;color:#FFF !important;font-weight:400 !important;margin-bottom:30px;"><!--We help Students easily achieve academic success.-->We help you achieve utmost efficiency as a student, corporate trainee or Instructor.
 
 </p>
-						<a style="font-size:13px;font-weight:700;line-height:19px;padding:16px 28px;border-radius:50px;color:#FFF;text-decoration:none;outline:none;" class="cs-bgcolor" href="<?php echo $dirlocation;?>register">Get Started!</a>
+						<a style="font-size:13px;font-weight:700;line-height:19px;padding:16px 28px;border-radius:50px;color:#FFF;text-decoration:none;outline:none;" class="cs-bgcolor" href="<?php echo $dirlocation;?>register">Get Started Now!</a>
 					</div>
 				</div>
 			</div>
@@ -71,7 +71,7 @@
 			  	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="cs-section-title left">
 					  <h2>Catalogue &amp; Courseware</h2>
-					  <p style="color:#aaaaaa !important;">We've got you covered in your career </p>
+					  <p style="color:#aaaaaa !important;">We've got you covered in your career pursuit </p>
 					</div>
               	</div>
 				<aside class="section-sidebar col-lg-3 col-md-3 col-sm-12 col-xs-12">

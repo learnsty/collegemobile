@@ -45,8 +45,8 @@
   <script type="text/javascript">
       (function(){
             var T = $cdvjs.Application.command("tools");
-            var w = window.innerWidth; /*|| document.body.clientWidth;*/
-            var h = window.innerHeight; /*|| document.body.clientHeight;*/
+            var w = window.innerWidth; || document.documentElement.clientWidth;
+            var h = window.innerHeight; || document.documentElement.clientHeight;
           
             var ew = w - 242;
             var eh = h - 80;

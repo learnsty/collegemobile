@@ -16,7 +16,8 @@
         PlayerDriver = (function(){
 
             var body,
-				url = primerUrl + ((w.location.pathname.substr(1)).replace('/runtime.php','')) + "/engine_SCORM/players_SCORM/",
+                pathName = w.location.pathname.substr(1);
+				url = primerUrl + (pathName.replace('/runtime.php','')) + "/engine_SCORM/players_SCORM/",
 			    pathMap = {
 				   "1.2":"player1_2.html",
 				   "1.3":"player2004.html",

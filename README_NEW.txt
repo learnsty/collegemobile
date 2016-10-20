@@ -23,7 +23,7 @@ COLLEGEMOBILE
       -login			(Controls user login)
       -logout			(Controls logout)
       -register			(Controls student and teachers registration)
-      -teach			(Controls teach content) [depreciat
+      -teach			(Controls teach content) [deprecated]
       -verify			(Controls verification)
 
    -Models/
